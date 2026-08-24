@@ -2,7 +2,7 @@
 
 ## Project Status
 
-Spec-driven development in progress. Feature 001 (Inicio) implemented.
+Spec-driven development in progress. Feature 001 (Inicio) and 002 (Login + Perfil) implemented.
 
 - `spec/` — project constitution and feature specs
 - `src/` — all source code (HTML, CSS, JS)
@@ -29,7 +29,7 @@ A fictional Lovecraftian university website (Spanish-language content):
 The constitution (`spec/constitution/`) is authoritative. Features must conform to it.
 
 **To add a feature:**
-1. Create `spec/features/NNN-nombre-feature/` (next number: `002`)
+1. Create `spec/features/NNN-nombre-feature/` (next number: `003`)
 2. Write `spec.md` (what + acceptance criteria)
 3. Write `plan.md` (how, respecting tech-stack.md)
 4. Write `tasks.md` (checklist)
@@ -44,6 +44,7 @@ The constitution (`spec/constitution/`) is authoritative. Features must conform 
 - `spec/constitution/tech-stack.md` — technical constraints
 - `spec/constitution/roadmap.md` — feature status tracking
 - `spec/features/001-inicio/` — homepage feature (spec, plan, tasks)
+- `spec/features/002-login-perfil/` — login + profile feature (spec, plan, tasks)
 - `opencode.json` — context7 MCP server configured
 
 ## Style

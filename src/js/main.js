@@ -1,8 +1,56 @@
 document.addEventListener('DOMContentLoaded', function() {
     const loginBtn = document.getElementById('loginBtn');
+    const profileBtn = document.getElementById('profileBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
     const loginModal = document.getElementById('loginModal');
     const closeModal = document.getElementById('closeModal');
     const loginForm = document.getElementById('loginForm');
+
+    function toggleRestrictedLinks(enable) {
+        const restrictedLinks = document.querySelectorAll('.restricted');
+        restrictedLinks.forEach(function(link) {
+            if (enable) {
+                link.classList.remove('restricted');
+                link.removeAttribute('title');
+            } else {
+                link.classList.add('restricted');
+                link.setAttribute('title', 'Necesitas iniciar sesión');
+            }
+        });
+    }
+
+    function updateUIForLoggedInUser(username) {
+        if (loginBtn) {
+            loginBtn.style.display = 'none';
+        }
+        if (profileBtn) {
+            profileBtn.textContent = username;
+            profileBtn.style.display = 'inline-block';
+        }
+        if (logoutBtn) {
+            logoutBtn.style.display = 'flex';
+        }
+        toggleRestrictedLinks(true);
+    }
+
+    function updateUIForLoggedOutUser() {
+        if (loginBtn) {
+            loginBtn.style.display = 'inline-block';
+        }
+        if (profileBtn) {
+            profileBtn.style.display = 'none';
+        }
+        if (logoutBtn) {
+            logoutBtn.style.display = 'none';
+        }
+        toggleRestrictedLinks(false);
+    }
+
+    function logout() {
+        localStorage.removeItem('loggedIn');
+        localStorage.removeItem('username');
+        updateUIForLoggedOutUser();
+    }
 
     if (loginBtn && loginModal) {
         loginBtn.addEventListener('click', function() {
@@ -31,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const password = document.getElementById('password').value;
 
             if (username === 'admin' && password === 'miskatonic') {
-                alert('Bienvenido, Profesor ' + username);
                 loginModal.classList.remove('active');
                 localStorage.setItem('loggedIn', 'true');
                 localStorage.setItem('username', username);
@@ -42,16 +89,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function updateUIForLoggedInUser(username) {
-        if (loginBtn) {
-            loginBtn.textContent = username;
-            loginBtn.classList.add('logged-in');
-        }
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            logout();
+        });
     }
 
     if (localStorage.getItem('loggedIn') === 'true') {
         const username = localStorage.getItem('username') || 'Admin';
         updateUIForLoggedInUser(username);
+    } else {
+        updateUIForLoggedOutUser();
     }
 
     document.addEventListener('keydown', function(e) {
@@ -63,7 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(function(link) {
         link.addEventListener('mouseenter', function() {
-            this.style.textShadow = '0 0 5px ' + getComputedStyle(document.documentElement).getPropertyValue('--accent-glow');
+            if (!this.classList.contains('restricted')) {
+                this.style.textShadow = '0 0 5px ' + getComputedStyle(document.documentElement).getPropertyValue('--accent-glow');
+            }
         });
         link.addEventListener('mouseleave', function() {
             this.style.textShadow = 'none';

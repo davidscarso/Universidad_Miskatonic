@@ -129,6 +129,134 @@ a:hover {
     box-shadow: 0 0 15px var(--shadow-color);
 }
 
+/* User Container */
+.user-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.profile-btn {
+    background-color: var(--accent-primary);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.profile-btn:hover {
+    background-color: var(--accent-secondary);
+    box-shadow: 0 0 15px var(--shadow-color);
+    color: var(--text-primary);
+}
+
+.logout-btn {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+/* Restricted Links */
+.nav-link.restricted {
+    color: var(--text-muted);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.nav-link.restricted:hover {
+    color: var(--text-muted);
+    border-bottom-color: transparent;
+    text-shadow: none;
+}
+
+.quick-link-card.restricted {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.quick-link-card.restricted:hover {
+    border-color: var(--border-color);
+    box-shadow: none;
+    transform: none;
+}
+
+/* Profile Page */
+.profile-section {
+    margin-bottom: 3rem;
+}
+
+.profile-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-primary);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    background-color: var(--bg-tertiary);
+    border: 2px solid var(--accent-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatar-symbol {
+    font-size: 3rem;
+    color: var(--accent-primary);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.profile-role {
+    color: var(--link-color);
+    font-style: italic;
+    margin-bottom: 0.25rem;
+}
+
+.profile-email {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.profile-links {
+    margin-bottom: 3rem;
+}
+
 /* Main */
 .main {
     flex: 1;

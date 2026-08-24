@@ -18,11 +18,15 @@
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link active">Inicio</a></li>
                     <li><a href="foro.html" class="nav-link">Foro de Investigación</a></li>
-                    <li><a href="email.html" class="nav-link">Correo</a></li>
-                    <li><a href="escritorio.html" class="nav-link">Escritorio</a></li>
+                    <li><a href="email.html" class="nav-link restricted" title="Necesitas iniciar sesión">Correo</a></li>
+                    <li><a href="escritorio.html" class="nav-link restricted" title="Necesitas iniciar sesión">Escritorio</a></li>
                 </ul>
             </nav>
-            <button class="login-btn" id="loginBtn">Iniciar Sesión</button>
+            <div class="user-container">
+                <button class="login-btn" id="loginBtn">Iniciar Sesión</button>
+                <a href="perfil.html" class="profile-btn" id="profileBtn" style="display: none;">Admin</a>
+                <button class="logout-btn" id="logoutBtn" style="display: none;" title="Cerrar sesión">&times;</button>
+            </div>
         </div>
     </header>
 
@@ -71,12 +75,12 @@
                     <h4>Foro de Investigación</h4>
                     <p>Discusiones académicas y descubrimientos recientes</p>
                 </a>
-                <a href="email.html" class="quick-link-card">
+                <a href="email.html" class="quick-link-card restricted" title="Necesitas iniciar sesión">
                     <span class="link-icon">&#9993;</span>
                     <h4>Correo Interno</h4>
                     <p>Bandeja de entrada del personal académico</p>
                 </a>
-                <a href="escritorio.html" class="quick-link-card">
+                <a href="escritorio.html" class="quick-link-card restricted" title="Necesitas iniciar sesión">
                     <span class="link-icon">&#128187;</span>
                     <h4>Escritorio Remoto</h4>
                     <p>Acceso al sistema de archivos universitario</p>
