@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Universidad Miskatonic - Portal oficial de investigación académica">
+    <title>Universidad Miskatonic - Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-symbol">&#9764;</span>
+                <h1>Universidad Miskatonic</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                    <li><a href="foro.html" class="nav-link">Foro de Investigación</a></li>
+                    <li><a href="email.html" class="nav-link">Correo</a></li>
+                    <li><a href="escritorio.html" class="nav-link">Escritorio</a></li>
+                </ul>
+            </nav>
+            <button class="login-btn" id="loginBtn">Iniciar Sesión</button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Bienvenidos a la Universidad Miskatonic</h2>
+                <p class="hero-subtitle">Departamento de Investigación Oculta y Estudios Arcanos</p>
+                <p class="hero-description">
+                    Fundada en 1828, la Universidad Miskatonic ha sido durante casi dos siglos 
+                    el epicentro del conocimiento prohibido y la investigación más allá de los 
+                    límites de la ciencia convencional.
+                </p>
+            </div>
+        </section>
+
+        <section class="news">
+            <h3 class="section-title">Últimas Noticias</h3>
+            <div class="news-grid">
+                <article class="news-card">
+                    <span class="news-date">15 de Octubre, 1928</span>
+                    <h4>Conferencia sobre Mitos de Cthulhu</h4>
+                    <p>El profesor Armitage presentará sus hallazgos sobre los textos encontrados en la expedición a Arkham.</p>
+                    <a href="#" class="news-link">Leer más &raquo;</a>
+                </article>
+                <article class="news-card">
+                    <span class="news-date">12 de Octubre, 1928</span>
+                    <h4>Nueva Colección de Manuscritos</h4>
+                    <p>La biblioteca ha adquirido una colección de manuscritos antiguos provenientes de la mansión de Innsmouth.</p>
+                    <a href="#" class="news-link">Leer más &raquo;</a>
+                </article>
+                <article class="news-card">
+                    <span class="news-date">8 de Octubre, 1928</span>
+                    <h4>Excavación en el Campo de Kingsport</h4>
+                    <p>Los resultados preliminares de la excavación arqueológica revelan estructuras de origen desconocido.</p>
+                    <a href="#" class="news-link">Leer más &raquo;</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="quick-links">
+            <h3 class="section-title">Accesos Rápidos</h3>
+            <div class="links-grid">
+                <a href="foro.html" class="quick-link-card">
+                    <span class="link-icon">&#128221;</span>
+                    <h4>Foro de Investigación</h4>
+                    <p>Discusiones académicas y descubrimientos recientes</p>
+                </a>
+                <a href="email.html" class="quick-link-card">
+                    <span class="link-icon">&#9993;</span>
+                    <h4>Correo Interno</h4>
+                    <p>Bandeja de entrada del personal académico</p>
+                </a>
+                <a href="escritorio.html" class="quick-link-card">
+                    <span class="link-icon">&#128187;</span>
+                    <h4>Escritorio Remoto</h4>
+                    <p>Acceso al sistema de archivos universitario</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 1928 Universidad Miskatonic. Todos los derechos reservados.</p>
+                <p class="footer-address">Arcane, Massachusetts, EE.UU.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Aviso Legal</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="login-modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3>Iniciar Sesión</h3>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
