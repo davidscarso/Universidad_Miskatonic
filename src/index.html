@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Universidad Miskatonic - Portal</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <header class="header">
         <div class="header-container">
@@ -17,9 +19,10 @@
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link active">Inicio</a></li>
-                    <li><a href="foro.html" class="nav-link">Foro de Investigación</a></li>
-                    <li><a href="email.html" class="nav-link restricted" title="Necesitas iniciar sesión">Correo</a></li>
-                    <li><a href="escritorio.html" class="nav-link restricted" title="Necesitas iniciar sesión">Escritorio</a></li>
+                    <li><a href="foro.html" class="nav-link">Foro de Investigación</a>
+                    </li>
+                    <li><a href="email.html" class="nav-link restricted" data-restricted="true">Correo</a></li>
+                    <li><a href="archivos.html" class="nav-link restricted" data-restricted="true">Archivos</a></li>
                 </ul>
             </nav>
             <div class="user-container">
@@ -36,8 +39,8 @@
                 <h2>Bienvenidos a la Universidad Miskatonic</h2>
                 <p class="hero-subtitle">Departamento de Investigación Oculta y Estudios Arcanos</p>
                 <p class="hero-description">
-                    Fundada en 1828, la Universidad Miskatonic ha sido durante casi dos siglos 
-                    el epicentro del conocimiento prohibido y la investigación más allá de los 
+                    Fundada en 1828, la Universidad Miskatonic ha sido durante casi dos siglos
+                    el epicentro del conocimiento prohibido y la investigación más allá de los
                     límites de la ciencia convencional.
                 </p>
             </div>
@@ -49,19 +52,22 @@
                 <article class="news-card">
                     <span class="news-date">15 de Octubre, 1928</span>
                     <h4>Conferencia sobre Mitos de Cthulhu</h4>
-                    <p>El profesor Armitage presentará sus hallazgos sobre los textos encontrados en la expedición a Arkham.</p>
+                    <p>El profesor Armitage presentará sus hallazgos sobre los textos encontrados en la expedición a
+                        Arkham.</p>
                     <a href="#" class="news-link">Leer más &raquo;</a>
                 </article>
                 <article class="news-card">
                     <span class="news-date">12 de Octubre, 1928</span>
                     <h4>Nueva Colección de Manuscritos</h4>
-                    <p>La biblioteca ha adquirido una colección de manuscritos antiguos provenientes de la mansión de Innsmouth.</p>
+                    <p>La biblioteca ha adquirido una colección de manuscritos antiguos provenientes de la mansión de
+                        Innsmouth.</p>
                     <a href="#" class="news-link">Leer más &raquo;</a>
                 </article>
                 <article class="news-card">
                     <span class="news-date">8 de Octubre, 1928</span>
                     <h4>Excavación en el Campo de Kingsport</h4>
-                    <p>Los resultados preliminares de la excavación arqueológica revelan estructuras de origen desconocido.</p>
+                    <p>Los resultados preliminares de la excavación arqueológica revelan estructuras de origen
+                        desconocido.</p>
                     <a href="#" class="news-link">Leer más &raquo;</a>
                 </article>
             </div>
@@ -75,15 +81,17 @@
                     <h4>Foro de Investigación</h4>
                     <p>Discusiones académicas y descubrimientos recientes</p>
                 </a>
-                <a href="email.html" class="quick-link-card restricted" title="Necesitas iniciar sesión">
+                <a href="email.html" class="quick-link-card restricted" data-restricted="true"
+                    title="Necesitas iniciar sesión">
                     <span class="link-icon">&#9993;</span>
                     <h4>Correo Interno</h4>
                     <p>Bandeja de entrada del personal académico</p>
                 </a>
-                <a href="escritorio.html" class="quick-link-card restricted" title="Necesitas iniciar sesión">
-                    <span class="link-icon">&#128187;</span>
-                    <h4>Escritorio Remoto</h4>
-                    <p>Acceso al sistema de archivos universitario</p>
+                <a href="archivos.html" class="quick-link-card restricted" data-restricted="true"
+                    title="Necesitas iniciar sesión">
+                    <span class="link-icon">&#128193;</span>
+                    <h4>Archivos</h4>
+                    <p>Gestor de archivos universitario</p>
                 </a>
             </div>
         </section>
@@ -123,4 +131,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

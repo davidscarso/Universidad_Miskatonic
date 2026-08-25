@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Universidad Miskatonic - Foro de Investigación">
+    <title>Foro de Investigación - Universidad Miskatonic</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-symbol">&#9764;</span>
+                <h1>Universidad Miskatonic</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="foro.html" class="nav-link active">Foro de Investigación</a></li>
+                    <li><a href="email.html" class="nav-link restricted" data-restricted="true" title="Necesitas iniciar sesión">Correo</a></li>
+                    <li><a href="archivos.html" class="nav-link restricted" data-restricted="true" title="Necesitas iniciar sesión">Archivos</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="notification-btn" id="notificationBtn" title="Notificaciones">
+                    <span class="notification-icon">&#128276;</span>
+                    <span class="notification-badge" id="notificationBadge">3</span>
+                </button>
+                <div class="user-container">
+                    <button class="login-btn" id="loginBtn">Iniciar Sesión</button>
+                    <a href="perfil.html" class="profile-btn" id="profileBtn" style="display: none;">Admin</a>
+                    <button class="logout-btn" id="logoutBtn" style="display: none;" title="Cerrar sesión">&times;</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main forum-layout">
+        <aside class="forum-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Categorías</h3>
+                <nav class="category-nav">
+                    <a href="#suenos" class="category-item active">
+                        <span class="category-icon">&#128161;</span>
+                        <span class="category-name">Sueños</span>
+                        <span class="category-count">12</span>
+                    </a>
+                    <a href="#compulsiones" class="category-item">
+                        <span class="category-icon">&#129504;</span>
+                        <span class="category-name">Compulsiones</span>
+                        <span class="category-count">8</span>
+                    </a>
+                    <a href="#dibujos" class="category-item">
+                        <span class="category-icon">&#127912;</span>
+                        <span class="category-name">Dibujos</span>
+                        <span class="category-count">15</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="sidebar-section">
+                <button class="upload-drawing-btn" id="uploadDrawingBtn">
+                    <span class="btn-icon">&#128228;</span>
+                    Subir mi dibujo
+                </button>
+            </div>
+        </aside>
+
+        <section class="forum-content">
+            <div class="forum-header">
+                <h2>Sueños</h2>
+                <span class="forum-topic-count">12 temas</span>
+            </div>
+
+            <div class="topic-list">
+                <article class="topic-item">
+                    <div class="topic-avatar">
+                        <span class="avatar-initials">HA</span>
+                    </div>
+                    <div class="topic-info">
+                        <h4 class="topic-title">Visión recurrente del templo submarino</h4>
+                        <p class="topic-excerpt">Cada noche veo las mismas estructuras bajo el agua, con criaturas que se mueven entre los corales...</p>
+                        <div class="topic-meta">
+                            <span class="topic-author">Prof. Armitage</span>
+                            <span class="topic-date">Hace 2 horas</span>
+                            <span class="topic-replies">5 respuestas</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span class="stat-icon">&#128065;</span>
+                        <span class="stat-count">47</span>
+                    </div>
+                </article>
+
+                <article class="topic-item">
+                    <div class="topic-avatar">
+                        <span class="avatar-initials">EW</span>
+                    </div>
+                    <div class="topic-info">
+                        <h4 class="topic-title">Pesadillas con entidades geometrical</h4>
+                        <p class="topic-excerpt">Las figuras geométricas que aparecen en mis sueños no siguen las leyes de la física conocida...</p>
+                        <div class="topic-meta">
+                            <span class="topic-author">Decano West</span>
+                            <span class="topic-date">Hace 5 horas</span>
+                            <span class="topic-replies">12 respuestas</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span class="stat-icon">&#128065;</span>
+                        <span class="stat-count">89</span>
+                    </div>
+                </article>
+
+                <article class="topic-item">
+                    <div class="topic-avatar">
+                        <span class="avatar-initials">AL</span>
+                    </div>
+                    <div class="topic-info">
+                        <h4 class="topic-title">Sueño con el Libro prohibido</h4>
+                        <p class="topic-excerpt">En mi sueño, encontré una copia del Necronomicón en la biblioteca subterránea...</p>
+                        <div class="topic-meta">
+                            <span class="topic-author">Est. López</span>
+                            <span class="topic-date">Ayer</span>
+                            <span class="topic-replies">8 respuestas</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span class="stat-icon">&#128065;</span>
+                        <span class="stat-count">156</span>
+                    </div>
+                </article>
+
+                <article class="topic-item">
+                    <div class="topic-avatar">
+                        <span class="avatar-initials">MR</span>
+                    </div>
+                    <div class="topic-info">
+                        <h4 class="topic-title">Visión de la ciudad de R'lyeh</h4>
+                        <p class="topic-excerpt">Vi la ciudad sagrada en sueños, con sus ángulos imposibles y su arquitectura antinatural...</p>
+                        <div class="topic-meta">
+                            <span class="topic-author">Dr. Rivera</span>
+                            <span class="topic-date">Hace 2 días</span>
+                            <span class="topic-replies">15 respuestas</span>
+                        </div>
+                    </div>
+                    <div class="topic-stats">
+                        <span class="stat-icon">&#128065;</span>
+                        <span class="stat-count">234</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 1928 Universidad Miskatonic. Todos los derechos reservados.</p>
+                <p class="footer-address">Arcane, Massachusetts, EE.UU.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Aviso Legal</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeUploadModal">&times;</span>
+            <h3>Subir mi dibujo</h3>
+            <form class="upload-form" id="uploadForm">
+                <div class="form-group">
+                    <label for="drawingTitle">Título del dibujo:</label>
+                    <input type="text" id="drawingTitle" name="drawingTitle" placeholder="Ej: Visión del abismo" required>
+                </div>
+                <div class="form-group">
+                    <label for="drawingCategory">Categoría:</label>
+                    <select id="drawingCategory" name="drawingCategory" required>
+                        <option value="">Seleccionar categoría</option>
+                        <option value="suenos">Sueños</option>
+                        <option value="compulsiones">Compulsiones</option>
+                        <option value="dibujos">Dibujos</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="drawingFile">Archivo:</label>
+                    <div class="file-upload-area" id="fileUploadArea">
+                        <span class="upload-icon">&#128228;</span>
+                        <p>Arrastra tu archivo aquí o haz clic para seleccionar</p>
+                        <input type="file" id="drawingFile" name="drawingFile" accept="image/*" hidden>
+                    </div>
+                    <p class="file-name" id="fileName">Ningún archivo seleccionado</p>
+                </div>
+                <div class="form-group">
+                    <label for="drawingDescription">Descripción:</label>
+                    <textarea id="drawingDescription" name="drawingDescription" rows="3" placeholder="Describe tu visión o experiencia..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Publicar dibujo</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="notificationModal">
+        <div class="modal-content notification-modal-content">
+            <span class="close-modal" id="closeNotificationModal">&times;</span>
+            <h3>Notificaciones</h3>
+            <div class="notification-list">
+                <div class="notification-item unread">
+                    <span class="notification-type-icon">&#128172;</span>
+                    <div class="notification-info">
+                        <p class="notification-text">Prof. Armitage respondió a tu tema "Visión recurrente del templo submarino"</p>
+                        <span class="notification-time">Hace 30 minutos</span>
+                    </div>
+                </div>
+                <div class="notification-item unread">
+                    <span class="notification-type-icon">&#128221;</span>
+                    <div class="notification-info">
+                        <p class="notification-text">Tu dibujo "Entidad geometrical" fue aprobado para la galería</p>
+                        <span class="notification-time">Hace 1 hora</span>
+                    </div>
+                </div>
+                <div class="notification-item unread">
+                    <span class="notification-type-icon">&#128276;</span>
+                    <div class="notification-info">
+                        <p class="notification-text">Nuevo tema en la categoría Dibujos: "El grabado de la montaña"</p>
+                        <span class="notification-time">Hace 2 horas</span>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <span class="notification-type-icon">&#128101;</span>
+                    <div class="notification-info">
+                        <p class="notification-text">Decano West te mencionó en "Reunión del departamento"</p>
+                        <span class="notification-time">Ayer</span>
+                    </div>
+                </div>
+            </div>
+            <button class="mark-all-read-btn" id="markAllReadBtn">Marcar todas como leídas</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

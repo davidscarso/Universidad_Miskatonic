@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Universidad Miskatonic - Gestor de Archivos">
+    <title>Archivos - Universidad Miskatonic</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-symbol">&#9764;</span>
+                <h1>Universidad Miskatonic</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="foro.html" class="nav-link">Foro de Investigación</a></li>
+                    <li><a href="email.html" class="nav-link restricted" data-restricted="true" title="Necesitas iniciar sesión">Correo</a></li>
+                    <li><a href="archivos.html" class="nav-link active">Archivos</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="notification-btn" id="notificationBtn" title="Notificaciones">
+                    <span class="notification-icon">&#128276;</span>
+                    <span class="notification-badge" id="notificationBadge">2</span>
+                </button>
+                <div class="user-container">
+                    <button class="login-btn" id="loginBtn">Iniciar Sesión</button>
+                    <a href="perfil.html" class="profile-btn" id="profileBtn" style="display: none;">Admin</a>
+                    <button class="logout-btn" id="logoutBtn" style="display: none;" title="Cerrar sesión">&times;</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main files-layout">
+        <aside class="files-sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Carpetas</h3>
+                <nav class="folder-tree">
+                    <div class="folder-item" data-folder="documentos">
+                        <span class="folder-icon">&#128193;</span>
+                        <span class="folder-name">Documentos</span>
+                    </div>
+                    <div class="folder-item" data-folder="imagenes">
+                        <span class="folder-icon">&#128194;</span>
+                        <span class="folder-name">Imágenes</span>
+                    </div>
+                    <div class="folder-item" data-folder="videos">
+                        <span class="folder-icon">&#128190;</span>
+                        <span class="folder-name">Videos</span>
+                    </div>
+                    <div class="folder-item" data-folder="investigacion">
+                        <span class="folder-icon">&#128193;</span>
+                        <span class="folder-name">Investigación</span>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+
+        <section class="files-content">
+            <div class="files-header">
+                <h2 id="currentFolder">Documentos</h2>
+                <span class="files-count" id="filesCount">3 archivos</span>
+            </div>
+
+            <div class="files-grid" id="filesGrid">
+                <div class="file-item" data-type="text" data-content="tesis">
+                    <div class="file-icon">&#128196;</div>
+                    <div class="file-name">Tesis sobre los Mitos.txt</div>
+                    <div class="file-meta">2 KB • 15 Oct 1928</div>
+                </div>
+
+                <div class="file-item" data-type="text" data-content="carta">
+                    <div class="file-icon">&#128196;</div>
+                    <div class="file-name">Carta del Decano.txt</div>
+                    <div class="file-meta">1 KB • 12 Oct 1928</div>
+                </div>
+
+                <div class="file-item" data-type="text" data-content="notas">
+                    <div class="file-icon">&#128196;</div>
+                    <div class="file-name">Notas de clase.txt</div>
+                    <div class="file-meta">3 KB • 10 Oct 1928</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; 1928 Universidad Miskatonic. Todos los derechos reservados.</p>
+                <p class="footer-address">Arcane, Massachusetts, EE.UU.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Aviso Legal</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal file-preview-modal" id="filePreviewModal">
+        <div class="modal-content file-preview-content">
+            <div class="modal-header">
+                <h3 id="previewFileName">Archivo</h3>
+                <div class="modal-controls">
+                    <button class="modal-control-btn" id="minimizeModal" title="Minimizar">&#9472;</button>
+                    <button class="modal-control-btn" id="maximizeModal" title="Maximizar">&#9723;</button>
+                    <span class="close-modal" id="closePreviewModal">&times;</span>
+                </div>
+            </div>
+            <div class="modal-body" id="previewBody">
+                <p>Contenido del archivo...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="notificationModal">
+        <div class="modal-content notification-modal-content">
+            <span class="close-modal" id="closeNotificationModal">&times;</span>
+            <h3>Notificaciones</h3>
+            <div class="notification-list">
+                <div class="notification-item unread">
+                    <span class="notification-type-icon">&#128221;</span>
+                    <div class="notification-info">
+                        <p class="notification-text">Nuevo archivo subido: "Reporte expedición.txt"</p>
+                        <span class="notification-time">Hace 1 hora</span>
+                    </div>
+                </div>
+                <div class="notification-item unread">
+                    <span class="notification-type-icon">&#128100;</span>
+                    <div class="notification-info">
+                        <p class="notification-text">Prof. Armitage compartió "Análisis manuscritos.txt"</p>
+                        <span class="notification-time">Hace 3 horas</span>
+                    </div>
+                </div>
+            </div>
+            <button class="mark-all-read-btn" id="markAllReadBtn">Marcar todas como leídas</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
