@@ -83,16 +83,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const username = document.getElementById('username').value;
+            const username = document.getElementById('username').value.toUpperCase();
             const password = document.getElementById('password').value;
 
-            if (username === 'admin' && password === 'miskatonic') {
+            if (username === 'SALCEDO.D' && password === '136136') {
                 loginModal.classList.remove('active');
                 localStorage.setItem('loggedIn', 'true');
-                localStorage.setItem('username', username);
-                updateUIForLoggedInUser(username);
+                localStorage.setItem('username', 'Damián Salcedo');
+                updateUIForLoggedInUser('Damián Salcedo');
             } else {
                 alert('Credenciales incorrectas. Acceso denegado.');
+                // TODO: agradar una modal con el mensaje. cerrar el login.
             }
         });
     }
