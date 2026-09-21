@@ -18,7 +18,7 @@
 - [x] Sin sesión: el link "Correo" del nav no navega (bloqueado); tampoco los quick-links restringidos
 - [x] Hacer clic en bandejas (`#inbox`, `#sent`, `#drafts`, `#deleted`) → no cambia la vista
 - [x] Verificar que ninguna página deja un link apuntando a `email.html`
-- [ ] Responsive del correo inyectado en desktop + mobile
+- [x] Responsive del correo inyectado en desktop + mobile
 - [x] Abrir con doble clic (`file://`, sin servidor)
 
 ## Documentación

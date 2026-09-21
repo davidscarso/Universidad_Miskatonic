@@ -23,7 +23,7 @@
 - [x] Minimizar y maximizar la preview funcionan
 - [x] Hacer swaps Archivos ↔ otras vistas varias veces → no se acumulan listeners; carpetas y preview siguen funcionando
 - [x] Verificar que ninguna página deja un link apuntando a `archivos.html`
-- [ ] Responsive del gestor inyectado en desktop + mobile
+- [x] Responsive del gestor inyectado en desktop + mobile
 - [x] Abrir con doble clic (`file://`, sin servidor)
 
 ## Documentación

@@ -11,9 +11,9 @@
 
 ## Validación
 
-- [ ] Abrir cada página y verificar que el footer se muestra correctamente
-- [ ] Verificar que el footer dice "Universidad Kaliber" en todas las páginas
-- [ ] Verificar responsive del footer en mobile
+- [x] Abrir cada página y verificar que el footer se muestra correctamente
+- [x] Verificar que el footer dice "Universidad Kaliber" en todas las páginas
+- [x] Verificar responsive del footer en mobile
 
 ## Documentación
 
