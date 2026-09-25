@@ -61,4 +61,9 @@ window.renderInicio = function() {
 
     placeholder.innerHTML = '';
     placeholder.appendChild(main);
+
+    var disclaimerModal = document.getElementById('disclaimerModal');
+    if (disclaimerModal && localStorage.getItem('disclaimerAccepted') !== 'true') {
+        disclaimerModal.classList.add('active');
+    }
 };

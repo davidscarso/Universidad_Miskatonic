@@ -20,18 +20,20 @@
                 <ul class="nav-list">
                     <li><a href="#inicio" class="nav-link" data-view="inicio">Inicio</a></li>
                     <li><a href="#foro" class="nav-link" data-view="foro">Foro</a></li>
-                    <li><a href="#correo"    class="nav-link restricted" data-restricted="true" data-view="correo">Correo</a></li>
-                    <li><a href="#archivos" class="nav-link restricted" data-restricted="true" data-view="archivos">Archivos</a></li>
+                    <li><a href="#correo" class="nav-link restricted" data-restricted="true"
+                            data-view="correo">Correo</a></li>
+                    <li><a href="#archivos" class="nav-link restricted" data-restricted="true"
+                            data-view="archivos">Archivos</a></li>
                 </ul>
             </nav>
-<div class="user-container">
+            <div class="user-container">
                 <button class="notification-btn" id="notificationBtn" title="Notificaciones">
                     <span class="notification-icon">&#128276;</span>
                     <span class="notification-badge" id="notificationBadge">3</span>
                 </button>
-                <button                 class="login-btn"   id="loginBtn">Iniciar Sesión</button>
-                <a href="perfil.html"   class="profile-btn" id="profileBtn"   style="display: none;"></a>
-                <button                 class="logout-btn"  id="logoutBtn"    style="display: none;">Salir</button>
+                <button class="login-btn" id="loginBtn">Iniciar Sesión</button>
+                <a href="#perfil" class="profile-btn" id="profileBtn" style="display: none;"></a>
+                <button class="logout-btn" id="logoutBtn" style="display: none;">Salir</button>
             </div>
         </div>
     </header>
@@ -65,7 +67,8 @@
             <form class="upload-form" id="uploadForm">
                 <div class="form-group">
                     <label for="drawingTitle">Título del dibujo:</label>
-                    <input type="text" id="drawingTitle" name="drawingTitle" placeholder="Ej: Visión del abismo" required>
+                    <input type="text" id="drawingTitle" name="drawingTitle" placeholder="Ej: Visión del abismo"
+                        required>
                 </div>
                 <div class="form-group">
                     <label for="drawingCategory">Categoría:</label>
@@ -87,7 +90,8 @@
                 </div>
                 <div class="form-group">
                     <label for="drawingDescription">Descripción:</label>
-                    <textarea id="drawingDescription" name="drawingDescription" rows="3" placeholder="Describe tu visión o experiencia..."></textarea>
+                    <textarea id="drawingDescription" name="drawingDescription" rows="3"
+                        placeholder="Describe tu visión o experiencia..."></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Publicar dibujo</button>
             </form>
@@ -102,7 +106,8 @@
                 <div class="notification-item unread">
                     <span class="notification-type-icon">&#128172;</span>
                     <div class="notification-info">
-                        <p class="notification-text">Prof. Armitage respondió a tu tema "Visión recurrente del templo submarino"</p>
+                        <p class="notification-text">Prof. Armitage respondió a tu tema "Visión recurrente del templo
+                            submarino"</p>
                         <span class="notification-time">Hace 30 minutos</span>
                     </div>
                 </div>
@@ -132,10 +137,30 @@
         </div>
     </div>
 
+    <div class="disclaimer-modal" id="disclaimerModal" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
+        <div class="disclaimer-content">
+            <h2 class="disclaimer-title" id="disclaimerTitle">Aviso legal</h2>
+            <p class="disclaimer-text">
+                Esta página web es ficticia. La Universidad Kaliber, sus publicaciones, investigaciones,
+                correos y archivos son parte de una obra de ficción.
+            </p>
+            <p class="disclaimer-text">
+                Nada de lo aquí expuesto corresponde a una institución real, ni constituye información
+                científica, médica o académica.
+            </p>
+            <p class="disclaimer-text">
+                Este sitio es un complemento de la novela a partir de la cual fue creado.
+            </p>
+            <a href="#" class="disclaimer-link">Adquirir el libro</a>
+            <button class="disclaimer-accept-btn" id="disclaimerAcceptBtn">Aceptar</button>
+        </div>
+    </div>
+
     <script src="js/archivos.js"></script>
     <script src="js/correo.js"></script>
     <script src="js/foro.js"></script>
     <script src="js/inicio.js"></script>
+    <script src="js/perfil.js"></script>
     <script src="js/navegacion.js"></script>
     <script src="js/main.js"></script>
     <script src="js/footer.js"></script>

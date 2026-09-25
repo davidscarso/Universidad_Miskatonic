@@ -1,3 +1,40 @@
+window.renderAccesoRestringido = function() {
+    const placeholder = document.getElementById('main-placeholder');
+    if (!placeholder) return;
+
+    const main = document.createElement('main');
+    main.className = 'main restricted-page';
+    main.innerHTML =
+        '<div class="restricted-content">' +
+            '<div class="restricted-stamp">&#9888;</div>' +
+            '<h2 class="restricted-title">Acceso Restringido</h2>' +
+            '<div class="restricted-divider"></div>' +
+            '<p class="restricted-message">' +
+                'Este recurso ha sido clasificado por la Oficina de Seguridad Interna de la Universidad Kaliber. ' +
+                'El contenido que intentaba acceder no se encuentra disponible en este momento.' +
+            '</p>' +
+            '<div class="restricted-case">' +
+                '<span class="case-label">Registro</span>' +
+                '<span class="case-number">NK-1928-047</span>' +
+            '</div>' +
+            '<p class="restricted-note">' +
+                'Si considera que este bloqueo es un error, contacte al Departamento de Asuntos Académicos.' +
+            '</p>' +
+            '<button class="login-btn" id="restrictedLoginBtn">Iniciar Sesión</button>' +
+        '</div>';
+
+    placeholder.innerHTML = '';
+    placeholder.appendChild(main);
+
+    const restrictedLoginBtn = main.querySelector('#restrictedLoginBtn');
+    const loginModal = document.getElementById('loginModal');
+    if (restrictedLoginBtn && loginModal) {
+        restrictedLoginBtn.addEventListener('click', function() {
+            loginModal.classList.add('active');
+        });
+    }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     const loginBtn = document.getElementById('loginBtn');
     const profileBtn = document.getElementById('profileBtn');
@@ -20,6 +57,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.toggleRestrictedLinks = toggleRestrictedLinks;
+
+    function isRestrictedHash() {
+        const hash = window.location.hash;
+        return hash === '#correo' || hash === '#archivos' || hash === '#perfil';
+    }
+
+    function refreshRestrictedView() {
+        if (isRestrictedHash() && typeof window.refreshCurrentView === 'function') {
+            window.refreshCurrentView();
+        }
+    }
 
     document.querySelectorAll('[data-restricted="true"]').forEach(function(link) {
         link.addEventListener('click', function(e) {
@@ -60,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem('loggedIn');
         localStorage.removeItem('username');
         updateUIForLoggedOutUser();
+        refreshRestrictedView();
     }
 
     if (loginBtn && loginModal) {
@@ -93,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('loggedIn', 'true');
                 localStorage.setItem('username', 'Damián Salcedo');
                 updateUIForLoggedInUser('Damián Salcedo');
+                refreshRestrictedView();
             } else {
                 alert('Credenciales incorrectas. Acceso denegado.');
                 // TODO: agradar una modal con el mensaje. cerrar el login.
@@ -229,6 +279,17 @@ document.addEventListener('DOMContentLoaded', function() {
             if (notificationBadge) {
                 notificationBadge.style.display = 'none';
             }
+        });
+    }
+
+    // Disclaimer: aceptar aviso legal (única vía de cierre)
+    const disclaimerModal = document.getElementById('disclaimerModal');
+    const disclaimerAcceptBtn = document.getElementById('disclaimerAcceptBtn');
+
+    if (disclaimerAcceptBtn && disclaimerModal) {
+        disclaimerAcceptBtn.addEventListener('click', function() {
+            localStorage.setItem('disclaimerAccepted', 'true');
+            disclaimerModal.classList.remove('active');
         });
     }
 
