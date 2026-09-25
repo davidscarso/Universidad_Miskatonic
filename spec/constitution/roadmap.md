@@ -19,6 +19,7 @@ _Features completadas, en orden de implementación._
 11. **011 · Archivos desde el index (SPA)** — El gestor de archivos pasa a ser una vista del index: main y toda su lógica (carpetas, preview) en `archivos.js`, inyección vía `#archivos` con estado `active`, `archivos.html` eliminado
 12. **012 · Perfil desde el index (SPA) + guarda de acceso** — El perfil pasa a ser la vista `#perfil` (`perfil.js`, entrada por el botón de usuario, `perfil.html` eliminado); `#correo`, `#archivos` y `#perfil` sin sesión muestran el panel de Acceso Restringido con botón de login (`renderAccesoRestringido` en `main.js`, guarda en `navegacion.js`)
 13. **013 · Modal de disclaimer** — Aviso legal que aparece la primera vez en la vista Inicio: fondo claro estilo papel (contrasta con el tema oscuro), link "Adquirir el libro" (placeholder) y botón Aceptar que guarda `disclaimerAccepted` en `localStorage` para no volver a mostrarlo
+14. **014 · Links del footer abren el disclaimer** — Aviso Legal, Política de Privacidad y Contacto del footer abren el mismo modal de 013 (con `preventDefault` para no alterar el hash), incluso después de haberlo aceptado; sin modal en `acceso-restringido.html` el clic no hace nada
 
 ## Siguiente 🔜
 

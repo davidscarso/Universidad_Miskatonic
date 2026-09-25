@@ -11,11 +11,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 '<p class="footer-address">Neuquén, NEUQUÉN, Argentina.</p>' +
             '</div>' +
             '<div class="footer-links">' +
-                '<a href="#">Aviso Legal</a>' +
-                '<a href="#">Política de Privacidad</a>' +
-                '<a href="#">Contacto</a>' +
+                '<a href="#" data-disclaimer="true">Aviso Legal</a>' +
+                '<a href="#" data-disclaimer="true">Política de Privacidad</a>' +
+                '<a href="#" data-disclaimer="true">Contacto</a>' +
             '</div>' +
         '</div>';
 
     placeholder.appendChild(footer);
+
+    footer.querySelectorAll('.footer-links a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var modal = document.getElementById('disclaimerModal');
+            if (modal) {
+                modal.classList.add('active');
+            }
+        });
+    });
 });
