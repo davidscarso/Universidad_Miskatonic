@@ -1,3 +1,5 @@
+localStorage.removeItem('disclaimerAccepted');
+
 window.renderAccesoRestringido = function() {
     const placeholder = document.getElementById('main-placeholder');
     if (!placeholder) return;
@@ -68,14 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
             window.refreshCurrentView();
         }
     }
-
-    document.querySelectorAll('[data-restricted="true"]').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            if (this.classList.contains('restricted')) {
-                e.preventDefault();
-            }
-        });
-    });
 
     function updateUIForLoggedInUser(username) {
         if (loginBtn) {
@@ -163,12 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateUIForLoggedOutUser();
     }
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && loginModal && loginModal.classList.contains('active')) {
-            loginModal.classList.remove('active');
-        }
-    });
-
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(function(link) {
         link.addEventListener('mouseenter', function() {
@@ -189,19 +177,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Forum: Upload Drawing Modal
-    const uploadDrawingBtn = document.getElementById('uploadDrawingBtn');
     const uploadModal = document.getElementById('uploadModal');
     const closeUploadModal = document.getElementById('closeUploadModal');
     const uploadForm = document.getElementById('uploadForm');
     const fileUploadArea = document.getElementById('fileUploadArea');
     const drawingFileInput = document.getElementById('drawingFile');
     const fileNameDisplay = document.getElementById('fileName');
-
-    if (uploadDrawingBtn && uploadModal) {
-        uploadDrawingBtn.addEventListener('click', function() {
-            uploadModal.classList.add('active');
-        });
-    }
 
     if (closeUploadModal && uploadModal) {
         closeUploadModal.addEventListener('click', function() {
@@ -296,6 +277,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close modals with Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
+            if (loginModal && loginModal.classList.contains('active')) {
+                loginModal.classList.remove('active');
+            }
             if (uploadModal && uploadModal.classList.contains('active')) {
                 uploadModal.classList.remove('active');
             }

@@ -2,19 +2,21 @@
 
 ## Project Status
 
-Spec-driven development in progress. Features 001-004 implemented.
+Spec-driven development in progress. Features 001-015 implemented. Next feature number: `016`.
 
 - `spec/` — project constitution and feature specs
 - `src/` — all source code (HTML, CSS, JS)
 
 ## What This Project Is
 
-A fictional Lovecraftian university website (Spanish-language content):
+A fictional Lovecraftian university website (Spanish-language content), companion to a novel:
+- SPA with hash router (`navegacion.js`): `#inicio`, `#foro`, `#correo`, `#archivos`, `#perfil`
 - Homepage emulating a university portal
 - Research forum with posts (4 states: active, closed, deleted, restricted)
-- Login (hardcoded credentials, single user)
+- Login (hardcoded credentials `SALCEDO.D` / `136136`, single user, `localStorage` session)
 - Fictional email inbox
 - File manager (Google Drive style)
+- Legal disclaimer modal (first visit, `localStorage` flag)
 
 ## Tech Stack (from constitution)
 
@@ -29,11 +31,11 @@ A fictional Lovecraftian university website (Spanish-language content):
 The constitution (`spec/constitution/`) is authoritative. Features must conform to it.
 
 **To add a feature:**
-1. Create `spec/features/NNN-nombre-feature/` (next number: `005`)
+1. Create `spec/features/NNN-nombre-feature/` (next number: `016`)
 2. Write `spec.md` (what + acceptance criteria)
 3. Write `plan.md` (how, respecting tech-stack.md)
 4. Write `tasks.md` (checklist)
-5. Implement
+5. Implement and validate: `node --check src/js/*.js` + smoke test (open `src/index.html`, exercise the touched views)
 6. Update `spec/constitution/roadmap.md` (move to "Hecho")
 
 **If a feature conflicts with the constitution, rework the feature—never the constitution.**
@@ -43,11 +45,11 @@ The constitution (`spec/constitution/`) is authoritative. Features must conform 
 - `spec/constitution/mission.md` — project scope and principles
 - `spec/constitution/tech-stack.md` — technical constraints
 - `spec/constitution/roadmap.md` — feature status tracking
-- `spec/features/001-inicio/` — homepage feature (spec, plan, tasks)
-- `spec/features/002-login-perfil/` — login + profile feature (spec, plan, tasks)
-- `spec/features/003-email/` — email feature (spec, plan, tasks)
-- `spec/features/004-foro/` — forum feature (spec, plan, tasks)
-- `opencode.json` — context7 MCP server configured
+- `spec/features/NNN-nombre-feature/` — template for new features (spec, plan, tasks)
+- `spec/features/001-inicio/` … `015-limpieza-y-documentacion/` — implemented features (001-015)
+- `src/js/navegacion.js` — hash router + access guard (views entry point)
+- `src/js/main.js` — login, modals, restricted-access panel, disclaimer
+- `opencode.json` — context7 MCP server configured (⚠ contains a committed API key: rotate it and move it out of the repo)
 
 ## Style
 

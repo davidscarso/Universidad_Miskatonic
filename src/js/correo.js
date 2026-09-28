@@ -62,7 +62,7 @@ window.renderCorreo = function() {
                 '<div class="detail-header">' +
                     '<h3>Descubrimiento en la expedición Arkham</h3>' +
                     '<div class="detail-meta">' +
-                        '<span class="detail-from">De: Prof. Armitage &lt;armitage@miskatonic.edu&gt;</span>' +
+                        '<span class="detail-from">De: Prof. Armitage &lt;armitage@KALIBER.edu&gt;</span>' +
                         '<span class="detail-date">15 de Octubre, 1928</span>' +
                     '</div>' +
                 '</div>' +
