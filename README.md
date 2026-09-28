@@ -20,7 +20,7 @@ src/
 │   ├── archivos.js     ← gestor de archivos con preview
 │   ├── perfil.js       ← vista perfil
 │   └── footer.js       ← footer compartido (se inyecta en todas las páginas)
-└── assets/images/      ← imágenes (pendiente)
+└── assets/images/      ← favicon.png y logo.png
 ```
 
 **Credenciales (ficticias):** usuario `SALCEDO.D`, contraseña `136136`. Sin sesión, `#correo`, `#archivos` y `#perfil` muestran el panel de Acceso Restringido.

@@ -36,5 +36,5 @@ _Aún no hay features en cola. Las nuevas se crean como `features/NNN-nombre-fea
 - **Links internos que ensucian el hash** — las categorías del foro (`#suenos`, `#dibujos`) cambian la URL sin handler; al recargar en ese hash se cae a Inicio (el correo ya quedó resuelto en la 016).
 - **Contenido del inicio** — texto con "COMPLETAR ALGO ACA" y errores tipográficos (`inicio.js`); links de noticias que salen del SPA hacia `acceso-restringido.html`.
 - **Notificaciones para invitados** — badge hardcodeado en "3" y campana visible sin sesión.
-- **`src/assets/images/` vacío** — no se usan imágenes.
+- **Optimizar imágenes** — `logos.png` (136 KB) se sirve en el header y `logo.png` (1.8 MB) + la hoja de propuestas ChatGPT quedaron sin uso en `src/assets/images/`.
 - **`opencode.json` con API key committeada** — rotar la clave y sacarla del repo (urgente, asunto de seguridad).
