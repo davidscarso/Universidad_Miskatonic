@@ -22,10 +22,11 @@ _Features completadas, en orden de implementación._
 14. **014 · Links del footer abren el disclaimer** — Aviso Legal, Política de Privacidad y Contacto del footer abren el mismo modal de 013 (con `preventDefault` para no alterar el hash), incluso después de haberlo aceptado; sin modal en `acceso-restringido.html` el clic no hace nada
 15. **015 · Limpieza de código muerto + documentación** — `main.js` pierde el binding de `#uploadDrawingBtn` (dueño: `foro.js`), su handler duplicado de links restricted (dueño: `navegacion.js`) y sus dos listeners de `Escape` (unificados en uno); `README.md` reescrito y `AGENTS.md` puesto al día (001-015, siguiente `016`)
 16. **016 · Correo: bandejas funcionales + modal de lectura** — Las 4 bandejas (Entrada/Salida/Borradores/Eliminados) cambian la lista sin tocar el hash; clic en un correo abre una modal (De/Para/Asunto/Texto) con `×`, maximizar/restaurar y —solo en Entrada— botón "Leído" que marca leído y baja el contador; +1 enviado, +1 borrador y +1 eliminado ficticio; modal de Archivos reparado con la misma base compartida `.preview-*` (maximize real, iconos `□`/`⧉`, sin minimizar)
+17. **017 · Perfil con foto de perfil** — El avatar de `#perfil` muestra la foto de Damián Salcedo (`Fotos/Foto_Damian.png`) recortada en círculo con el borde rojo de acento; se elimina el glifo `☺` y su CSS `.avatar-symbol`
 
 ## Siguiente 🔜
 
-_Aún no hay features en cola. Las nuevas se crean como `features/NNN-nombre-feature/` (siguiente número: `017`) con `spec.md`, `plan.md` y `tasks.md`._
+_Aún no hay features en cola. Las nuevas se crean como `features/NNN-nombre-feature/` (siguiente número: `018`) con `spec.md`, `plan.md` y `tasks.md`._
 
 ## Backlog / ideas 💡
 

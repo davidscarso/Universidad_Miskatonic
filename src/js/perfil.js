@@ -11,7 +11,7 @@ window.renderPerfil = function() {
             '<h2 class="section-title">Mi Perfil</h2>' +
             '<div class="profile-card">' +
                 '<div class="profile-avatar">' +
-                    '<span class="avatar-symbol">&#9786;</span>' +
+                    '<img class="profile-avatar-img" src="assets/images/Fotos/Foto_Damian.png" alt="Foto de Damián Salcedo">' +
                 '</div>' +
                 '<div class="profile-info">' +
                     '<h3 class="profile-name">' + username + '</h3>' +

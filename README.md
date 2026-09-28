@@ -40,4 +40,4 @@ La `spec/` es la constitución del proyecto. Toda feature nueva sigue este flujo
 
 ## Estado
 
-Features 001-016 implementadas (ver `spec/constitution/roadmap.md`). Stack: HTML + CSS + JavaScript vanilla, sin framework, sin build.
+Features 001-017 implementadas (ver `spec/constitution/roadmap.md`). Stack: HTML + CSS + JavaScript vanilla, sin framework, sin build.

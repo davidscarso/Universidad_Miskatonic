@@ -226,15 +226,19 @@ a:hover {
     height: 100px;
     background-color: var(--bg-tertiary);
     border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
 }
 
-.avatar-symbol {
-    font-size: 3rem;
-    color: var(--accent-primary);
+.profile-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .profile-info {
