@@ -105,21 +105,24 @@
         var previewBody = filePreviewModal.querySelector('#previewBody');
         if (previewFileName) previewFileName.textContent = file.title;
         if (previewBody) previewBody.innerHTML = '<p>' + file.content + '</p>';
+        resetPreviewState(filePreviewModal);
         filePreviewModal.classList.add('active');
     }
 
-    function resetModalSize(filePreviewModal) {
-        var content = filePreviewModal.querySelector('.file-preview-content');
+    function resetPreviewState(filePreviewModal) {
+        var content = filePreviewModal.querySelector('.preview-content');
         if (content) {
-            content.style.width = '600px';
-            content.style.height = '400px';
-            content.style.minWidth = '400px';
-            content.style.minHeight = '300px';
-            content.style.position = '';
-            content.style.top = '';
-            content.style.left = '';
-            content.style.zIndex = '';
+            content.classList.remove('is-maximized');
         }
+        var maximizeBtn = filePreviewModal.querySelector('#maximizeModal');
+        if (maximizeBtn) {
+            maximizeBtn.setAttribute('title', 'Maximizar');
+        }
+    }
+
+    function closePreview(filePreviewModal) {
+        filePreviewModal.classList.remove('active');
+        resetPreviewState(filePreviewModal);
     }
 
     function bindHandlers(main) {
@@ -129,7 +132,6 @@
         var folderTree = main.querySelector('.folder-tree');
         var filePreviewModal = main.querySelector('#filePreviewModal');
         var closePreviewModal = main.querySelector('#closePreviewModal');
-        var minimizeModal = main.querySelector('#minimizeModal');
         var maximizeModal = main.querySelector('#maximizeModal');
 
         var folderItems = main.querySelectorAll('.folder-item');
@@ -156,54 +158,24 @@
 
         if (closePreviewModal && filePreviewModal) {
             closePreviewModal.addEventListener('click', function() {
-                filePreviewModal.classList.remove('active');
-                resetModalSize(filePreviewModal);
+                closePreview(filePreviewModal);
             });
         }
 
         if (filePreviewModal) {
             filePreviewModal.addEventListener('click', function(e) {
                 if (e.target === filePreviewModal) {
-                    filePreviewModal.classList.remove('active');
-                    resetModalSize(filePreviewModal);
-                }
-            });
-        }
-
-        if (minimizeModal && filePreviewModal) {
-            minimizeModal.addEventListener('click', function() {
-                var content = filePreviewModal.querySelector('.file-preview-content');
-                if (!content) return;
-                if (content.style.height === '40px') {
-                    content.style.height = '400px';
-                    content.style.minHeight = '300px';
-                } else {
-                    content.style.height = '40px';
-                    content.style.minHeight = '40px';
-                    content.style.overflow = 'hidden';
+                    closePreview(filePreviewModal);
                 }
             });
         }
 
         if (maximizeModal && filePreviewModal) {
             maximizeModal.addEventListener('click', function() {
-                var content = filePreviewModal.querySelector('.file-preview-content');
+                var content = filePreviewModal.querySelector('.preview-content');
                 if (!content) return;
-                if (content.style.width === '100vw') {
-                    content.style.width = '600px';
-                    content.style.height = '400px';
-                    content.style.minWidth = '400px';
-                    content.style.minHeight = '300px';
-                } else {
-                    content.style.width = '100vw';
-                    content.style.height = '100vh';
-                    content.style.minWidth = '100vw';
-                    content.style.minHeight = '100vh';
-                    content.style.position = 'fixed';
-                    content.style.top = '0';
-                    content.style.left = '0';
-                    content.style.zIndex = '300';
-                }
+                var maximized = content.classList.toggle('is-maximized');
+                maximizeModal.setAttribute('title', maximized ? 'Restaurar' : 'Maximizar');
             });
         }
 
@@ -214,8 +186,7 @@
             if (e.key === 'Escape' && filePreviewModal) {
                 var modal = document.getElementById('filePreviewModal');
                 if (modal && modal.classList.contains('active')) {
-                    modal.classList.remove('active');
-                    resetModalSize(modal);
+                    closePreview(modal);
                 }
             }
         };
@@ -283,14 +254,15 @@
                     '</div>' +
                 '</div>' +
             '</section>' +
-            '<div class="modal file-preview-modal" id="filePreviewModal">' +
-                '<div class="modal-content file-preview-content">' +
+            '<div class="modal preview-modal" id="filePreviewModal">' +
+                '<div class="modal-content preview-content">' +
                     '<div class="modal-header">' +
                         '<h3 id="previewFileName">Archivo</h3>' +
                         '<div class="modal-controls">' +
-                            '<button class="modal-control-btn" id="minimizeModal" title="Minimizar">&#9472;</button>' +
-                            '<button class="modal-control-btn" id="maximizeModal" title="Maximizar">&#9723;</button>' +
-                            '<span class="close-modal" id="closePreviewModal">&times;</span>' +
+                            '<button type="button" class="modal-control-btn" id="maximizeModal" title="Maximizar">' +
+                                '<span class="icon-maximize">&#9633;</span><span class="icon-restore">&#10697;</span>' +
+                            '</button>' +
+                            '<button type="button" class="modal-control-btn close-btn" id="closePreviewModal" title="Cerrar">&times;</button>' +
                         '</div>' +
                     '</div>' +
                     '<div class="modal-body" id="previewBody">' +

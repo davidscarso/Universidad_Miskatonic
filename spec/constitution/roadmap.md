@@ -21,10 +21,11 @@ _Features completadas, en orden de implementación._
 13. **013 · Modal de disclaimer** — Aviso legal que aparece la primera vez en la vista Inicio: fondo claro estilo papel (contrasta con el tema oscuro), link "Adquirir el libro" (placeholder) y botón Aceptar que guarda `disclaimerAccepted` en `localStorage` para no volver a mostrarlo
 14. **014 · Links del footer abren el disclaimer** — Aviso Legal, Política de Privacidad y Contacto del footer abren el mismo modal de 013 (con `preventDefault` para no alterar el hash), incluso después de haberlo aceptado; sin modal en `acceso-restringido.html` el clic no hace nada
 15. **015 · Limpieza de código muerto + documentación** — `main.js` pierde el binding de `#uploadDrawingBtn` (dueño: `foro.js`), su handler duplicado de links restricted (dueño: `navegacion.js`) y sus dos listeners de `Escape` (unificados en uno); `README.md` reescrito y `AGENTS.md` puesto al día (001-015, siguiente `016`)
+16. **016 · Correo: bandejas funcionales + modal de lectura** — Las 4 bandejas (Entrada/Salida/Borradores/Eliminados) cambian la lista sin tocar el hash; clic en un correo abre una modal (De/Para/Asunto/Texto) con `×`, maximizar/restaurar y —solo en Entrada— botón "Leído" que marca leído y baja el contador; +1 enviado, +1 borrador y +1 eliminado ficticio; modal de Archivos reparado con la misma base compartida `.preview-*` (maximize real, iconos `□`/`⧉`, sin minimizar)
 
 ## Siguiente 🔜
 
-_Aún no hay features en cola. Las nuevas se crean como `features/NNN-nombre-feature/` (siguiente número: `016`) con `spec.md`, `plan.md` y `tasks.md`._
+_Aún no hay features en cola. Las nuevas se crean como `features/NNN-nombre-feature/` (siguiente número: `017`) con `spec.md`, `plan.md` y `tasks.md`._
 
 ## Backlog / ideas 💡
 
@@ -32,9 +33,8 @@ _Aún no hay features en cola. Las nuevas se crean como `features/NNN-nombre-fea
 
 - **Alerta de login** — reemplazar el `alert()` de credenciales incorrectas (`main.js`) por una modal con el mensaje (TODO pendiente en el código).
 - **Preview de archivos** — `archivos.js` anida `<p>` dentro de `<p>` al inyectar `file.content` (HTML inválido).
-- **Links internos que ensucian el hash** — categorías del foro (`#suenos`, `#dibujos`) y bandejas de correo (`#inbox`, `#sent`) cambian la URL sin handler; al recargar en ese hash se cae a Inicio.
+- **Links internos que ensucian el hash** — las categorías del foro (`#suenos`, `#dibujos`) cambian la URL sin handler; al recargar en ese hash se cae a Inicio (el correo ya quedó resuelto en la 016).
 - **Contenido del inicio** — texto con "COMPLETAR ALGO ACA" y errores tipográficos (`inicio.js`); links de noticias que salen del SPA hacia `acceso-restringido.html`.
 - **Notificaciones para invitados** — badge hardcodeado en "3" y campana visible sin sesión.
-- **Revisar lore** — dominios `miskatonic.edu` vs universidad "Kaliber".
 - **`src/assets/images/` vacío** — no se usan imágenes.
 - **`opencode.json` con API key committeada** — rotar la clave y sacarla del repo (urgente, asunto de seguridad).
