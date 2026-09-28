@@ -18,7 +18,7 @@ src/
 │   ├── foro.js         ← vista foro + trigger de upload
 │   ├── correo.js       ← vista correo
 │   ├── archivos.js     ← gestor de archivos con preview
-│   ├── perfil.js       ← vista perfil
+│   ├── perfil.js       ← vista perfil + modal de foto ampliada
 │   └── footer.js       ← footer compartido (se inyecta en todas las páginas)
 └── assets/images/      ← favicon.png y logo.png
 ```
@@ -29,7 +29,7 @@ src/
 
 La `spec/` es la constitución del proyecto. Toda feature nueva sigue este flujo:
 
-1. Crear `spec/features/NNN-nombre-feature/` (siguiente libre: `017`)
+1. Crear `spec/features/NNN-nombre-feature/` (siguiente libre: `019`)
 2. Escribir `spec.md` — qué hace y criterios de aceptación
 3. Escribir `plan.md` — cómo se implementa respetando `spec/constitution/tech-stack.md`
 4. Escribir `tasks.md` — checklist
@@ -40,4 +40,4 @@ La `spec/` es la constitución del proyecto. Toda feature nueva sigue este flujo
 
 ## Estado
 
-Features 001-017 implementadas (ver `spec/constitution/roadmap.md`). Stack: HTML + CSS + JavaScript vanilla, sin framework, sin build.
+Features 001-018 implementadas (ver `spec/constitution/roadmap.md`). Stack: HTML + CSS + JavaScript vanilla, sin framework, sin build.
