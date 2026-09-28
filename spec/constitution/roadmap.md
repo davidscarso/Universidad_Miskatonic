@@ -24,10 +24,11 @@ _Features completadas, en orden de implementación._
 16. **016 · Correo: bandejas funcionales + modal de lectura** — Las 4 bandejas (Entrada/Salida/Borradores/Eliminados) cambian la lista sin tocar el hash; clic en un correo abre una modal (De/Para/Asunto/Texto) con `×`, maximizar/restaurar y —solo en Entrada— botón "Leído" que marca leído y baja el contador; +1 enviado, +1 borrador y +1 eliminado ficticio; modal de Archivos reparado con la misma base compartida `.preview-*` (maximize real, iconos `□`/`⧉`, sin minimizar)
 17. **017 · Perfil con foto de perfil** — El avatar de `#perfil` muestra la foto de Damián Salcedo (`Fotos/Foto_Damian.png`) recortada en círculo con el borde rojo de acento; se elimina el glifo `☺` y su CSS `.avatar-symbol`
 18. **018 · Perfil: ampliar foto en modal** — Clic en el avatar de `#perfil` abre la foto en grande con la misma base `.preview-*` que Archivos/Correo (`×`, maximizar/restaurar `□`/`⧉`, fondo y `Escape`); imagen ajustada a la ventana (`contain`, sin scroll), `perfil.js` pasa a IIFE con patrón `activeKeydown`, ids con prefijo `avatar*` para no chocar con los otros modales
+19. **019 · Noticias de Inicio: modal con el artículo completo** — Los 3 "Leer más" de Últimas Noticias abren una modal `.preview-*` (título, fecha y 3 párrafos ficticios por noticia) con `×`, maximizar/restaurar, fondo y `Escape`; `inicio.js` pasa a IIFE, el link deja de salir del SPA (`href="#"` + `preventDefault`, resuelve el item del backlog) y no hizo falta CSS nuevo
 
 ## Siguiente 🔜
 
-_Aún no hay features en cola. Las nuevas se crean como `features/NNN-nombre-feature/` (siguiente número: `019`) con `spec.md`, `plan.md` y `tasks.md`._
+_Aún no hay features en cola. Las nuevas se crean como `features/NNN-nombre-feature/` (siguiente número: `020`) con `spec.md`, `plan.md` y `tasks.md`._
 
 ## Backlog / ideas 💡
 
@@ -36,7 +37,8 @@ _Aún no hay features en cola. Las nuevas se crean como `features/NNN-nombre-fea
 - **Alerta de login** — reemplazar el `alert()` de credenciales incorrectas (`main.js`) por una modal con el mensaje (TODO pendiente en el código).
 - **Preview de archivos** — `archivos.js` anida `<p>` dentro de `<p>` al inyectar `file.content` (HTML inválido).
 - **Links internos que ensucian el hash** — las categorías del foro (`#suenos`, `#dibujos`) cambian la URL sin handler; al recargar en ese hash se cae a Inicio (el correo ya quedó resuelto en la 016).
-- **Contenido del inicio** — texto con "COMPLETAR ALGO ACA" y errores tipográficos (`inicio.js`); links de noticias que salen del SPA hacia `acceso-restringido.html`.
+- **Contenido del inicio** — texto con "COMPLETAR ALGO ACA" y errores tipográficos (`inicio.js`); ~~links de noticias que salen del SPA hacia `acceso-restringido.html`~~ (resuelto en la 019).
 - **Notificaciones para invitados** — badge hardcodeado en "3" y campana visible sin sesión.
 - **Optimizar imágenes** — `logos.png` (136 KB) se sirve en el header y `logo.png` (1.8 MB) + la hoja de propuestas ChatGPT quedaron sin uso en `src/assets/images/`.
 - **`opencode.json` con API key committeada** — rotar la clave y sacarla del repo (urgente, asunto de seguridad).
+- **Disclaimer que siempre reaparece** — `main.js:1` hace `localStorage.removeItem('disclaimerAccepted')` en cada carga, anulando el flag de la 013 (¿debug olvidado?).
