@@ -2,7 +2,7 @@
 
 ## Project Status
 
-Spec-driven development in progress. Features 001-021 implemented. Next free feature number: `022`.
+Spec-driven development in progress. Features 001-022 implemented. Next free feature number: `023`.
 
 - `spec/` — project constitution and feature specs
 - `src/` — all source code (HTML, CSS, JS)
@@ -31,7 +31,7 @@ A fictional Lovecraftian university website (Spanish-language content), companio
 The constitution (`spec/constitution/`) is authoritative. Features must conform to it.
 
 **To add a feature:**
-1. Create `spec/features/NNN-nombre-feature/` (next free number: `022`)
+1. Create `spec/features/NNN-nombre-feature/` (next free number: `023`)
 2. Write `spec.md` (what + acceptance criteria)
 3. Write `plan.md` (how, respecting tech-stack.md)
 4. Write `tasks.md` (checklist)

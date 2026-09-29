@@ -27,10 +27,11 @@ _Features completadas, en orden de implementación._
 19. **019 · Noticias de Inicio: modal con el artículo completo** — Los 3 "Leer más" de Últimas Noticias abren una modal `.preview-*` (título, fecha y 3 párrafos ficticios por noticia) con `×`, maximizar/restaurar, fondo y `Escape`; `inicio.js` pasa a IIFE, el link deja de salir del SPA (`href="#"` + `preventDefault`, resuelve el item del backlog) y no hizo falta CSS nuevo
 20. **020 · Correcciones de calidad y navegación** — Disclaimer persistente, HTML válido en previews, limpieza editorial y categorías funcionales del foro
 21. **021 · Interacciones pendientes de Foro y Correo** — Notificaciones, detalle de temas y redacción simulada de correos
+22. **022 · Bloqueo de scroll del fondo con modal abierto** — Regla CSS `body:has(...)` + `overflow: hidden` para las 3 clases de modal, `scrollbar-gutter: stable` sin salto de layout y `overscroll-behavior: contain` en los contenidos
 
 ## Siguiente 🔜
 
-_No hay features pendientes. La siguiente feature libre es `022`._
+_No hay features pendientes. La siguiente feature libre es `023`._
 
 ## Backlog / ideas 💡
 

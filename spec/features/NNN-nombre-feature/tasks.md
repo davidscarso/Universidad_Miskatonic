@@ -1,16 +1,18 @@
 # NNN · <Nombre de la feature> — Tareas
 
-_Checklist accionable derivada del `plan.md`. Tareas pequeñas y concretas; marca `[x]` al completarlas._
+## Implementación
 
 - [ ] <Tarea concreta de implementación.>
-- [ ] <Tarea concreta de implementación.>
-- [ ] <Tarea de pruebas / validación.>
-- [ ] <Actualizar documentación si aplica.>
+- [ ] <Archivo/módulo afectado y cambio realizado.>
+
+## Validación
+
+- [ ] `node --check src/js/*.js`
+- [ ] <Prueba manual o automatizada concreta.>
 - [ ] Validar contra los criterios de aceptación de `spec.md`.
-- [ ] Mover la feature a "Hecho" en `../../constitution/roadmap.md`.
 
-## Mantenimiento (checklist recurrente)
+## Documentación
 
-_Opcional. Pasos a repetir cada vez que se toque esta feature en el futuro (revisar datos, regenerar algo, etc.). Borra esta sección si no aplica._
-
-- [ ] <Acción recurrente.>
+- [ ] Crear `spec/features/NNN-nombre-feature/` con `spec.md`, `plan.md` y `tasks.md`
+- [ ] Mover la feature a "Hecho" en `../../constitution/roadmap.md`
+- [ ] Actualizar `AGENTS.md` y `README.md` con el nuevo estado y siguiente número.

@@ -1189,6 +1189,16 @@ a:hover {
 }
 
 /* Modals */
+html {
+    scrollbar-gutter: stable;
+}
+
+body:has(.modal.active),
+body:has(.login-modal.active),
+body:has(.disclaimer-modal.active) {
+    overflow: hidden;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -1674,6 +1684,11 @@ a:hover {
 /* Preview Modal (Archivos + Correo) */
 .preview-modal {
     overflow: hidden;
+}
+
+.modal-content,
+.disclaimer-content {
+    overscroll-behavior: contain;
 }
 
 .preview-content {
