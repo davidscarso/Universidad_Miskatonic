@@ -31,5 +31,5 @@ Los "Leer más" eran un callejón sin salida: navegaban a `acceso-restringido.ht
 
 - CMS, editor o carga dinámica de noticias (los artículos son datos fijos en `inicio.js`).
 - Imágenes o galerías dentro del artículo.
-- Arreglar el texto del hero ("COMPLETAR ALGO ACA", typos) — sigue en el backlog.
+- Arreglar el texto del hero ("COMPLETAR ALGO ACA", typos) — resuelto en la feature 020.
 - Compartir/enlazar artículos por URL (sin hash por artículo).

@@ -35,4 +35,4 @@ El correo era estático: las cuatro bandejas eran links a `#inbox`/`#sent`/… q
 - Redactar/editar/enviar correos ni borradores (la modal solo muestra).
 - Bandeja de spam, búsqueda y paginación.
 - El `alert()` de credenciales incorrectas (`main.js`, ver backlog).
-- Categorías del foro que ensucian el hash (`#suenos`, `#dibujos`) — pendiente en backlog.
+- Categorías del foro que ensuciaban el hash (`#suenos`, `#dibujos`) — resuelto en la feature 020.

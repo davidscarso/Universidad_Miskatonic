@@ -28,10 +28,10 @@
                 </ul>
             </nav>
             <div class="user-container">
-                <!-- <button class="notification-btn" id="notificationBtn" title="Notificaciones">
+                <button class="notification-btn" id="notificationBtn" type="button" title="Notificaciones" aria-label="Abrir notificaciones">
                     <span class="notification-icon">&#128276;</span>
                     <span class="notification-badge" id="notificationBadge">3</span>
-                </button> -->
+                </button>
                 <button class="login-btn" id="loginBtn">Iniciar Sesión</button>
                 <a href="#perfil" class="profile-btn" id="profileBtn" style="display: none;"></a>
                 <button class="logout-btn" id="logoutBtn" style="display: none;">Salir</button>
@@ -101,7 +101,7 @@
 
     <div class="modal" id="notificationModal">
         <div class="modal-content notification-modal-content">
-            <span class="close-modal" id="closeNotificationModal">&times;</span>
+            <button class="close-modal" id="closeNotificationModal" type="button" aria-label="Cerrar notificaciones">&times;</button>
             <h3>Notificaciones</h3>
             <div class="notification-list">
                 <div class="notification-item unread">
@@ -115,7 +115,7 @@
                 <div class="notification-item unread">
                     <span class="notification-type-icon">&#128221;</span>
                     <div class="notification-info">
-                        <p class="notification-text">Tu dibujo "Entidad geometrical" fue aprobado para la galería</p>
+                        <p class="notification-text">Tu dibujo "Entidad geométrica" fue aprobado para la galería</p>
                         <span class="notification-time">Hace 1 hora</span>
                     </div>
                 </div>

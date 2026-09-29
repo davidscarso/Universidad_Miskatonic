@@ -110,7 +110,7 @@
                     '<div class="profile-info">' +
                         '<h3 class="profile-name">' + username + '</h3>' +
                         '<p class="profile-role">Departamento de Investigación Oculta</p>' +
-                        '<p class="profile-email">admin@KALIBER.edu</p>' +
+                        '<p class="profile-email">salcedo.d@kaliber.edu</p>' +
                     '</div>' +
                 '</div>' +
             '</section>' +

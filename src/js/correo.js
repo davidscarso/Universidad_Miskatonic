@@ -166,6 +166,35 @@
         '</div>';
     }
 
+    function composeModalHtml() {
+        return '<div class="modal" id="composeModal" role="dialog" aria-modal="true" aria-labelledby="composeTitle">' +
+            '<div class="modal-content compose-modal-content">' +
+                '<div class="modal-header">' +
+                    '<h3 id="composeTitle">Redactar correo</h3>' +
+                    '<div class="modal-controls">' +
+                        '<button type="button" class="modal-control-btn close-btn" id="composeCloseBtn" title="Cerrar" aria-label="Cerrar redacción">&times;</button>' +
+                    '</div>' +
+                '</div>' +
+                '<form class="compose-form" id="composeForm">' +
+                    '<div class="form-group">' +
+                        '<label for="composeTo">Destinatario:</label>' +
+                        '<input type="email" id="composeTo" name="composeTo" required>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                        '<label for="composeSubject">Asunto:</label>' +
+                        '<input type="text" id="composeSubject" name="composeSubject" required>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                        '<label for="composeBody">Mensaje:</label>' +
+                        '<textarea id="composeBody" name="composeBody" rows="7" required></textarea>' +
+                    '</div>' +
+                    '<button type="submit" class="submit-btn">Enviar mensaje</button>' +
+                    '<p class="compose-status" id="composeStatus" role="status" aria-live="polite"></p>' +
+                '</form>' +
+            '</div>' +
+        '</div>';
+    }
+
     function updateCounts(main) {
         Object.keys(mailboxes).forEach(function(folder) {
             var badge = main.querySelector('.mailbox-count[data-count="' + folder + '"]');
@@ -252,7 +281,53 @@
     }
 
     function bindCorreo(main) {
+        var composeBtn = main.querySelector('#composeBtn');
+        var composeModal = main.querySelector('#composeModal');
+        var composeCloseBtn = main.querySelector('#composeCloseBtn');
+        var composeForm = main.querySelector('#composeForm');
+        var composeStatus = main.querySelector('#composeStatus');
         var mailboxNav = main.querySelector('.mailbox-nav');
+
+        if (composeBtn && composeModal) {
+            composeBtn.addEventListener('click', function() {
+                composeModal.classList.add('active');
+                var recipient = main.querySelector('#composeTo');
+                if (recipient) recipient.focus();
+            });
+        }
+
+        if (composeCloseBtn && composeModal) {
+            composeCloseBtn.addEventListener('click', function() {
+                composeModal.classList.remove('active');
+                if (composeForm) composeForm.reset();
+                if (composeStatus) composeStatus.textContent = '';
+            });
+        }
+
+        if (composeModal) {
+            composeModal.addEventListener('click', function(e) {
+                if (e.target === composeModal) {
+                    composeModal.classList.remove('active');
+                    if (composeForm) composeForm.reset();
+                    if (composeStatus) composeStatus.textContent = '';
+                }
+            });
+        }
+
+        if (composeForm) {
+            composeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (!composeForm.checkValidity()) {
+                    composeForm.reportValidity();
+                    return;
+                }
+                composeForm.reset();
+                if (composeStatus) {
+                    composeStatus.textContent = 'Mensaje enviado (simulación).';
+                }
+            });
+        }
+
         if (mailboxNav) {
             mailboxNav.addEventListener('click', function(e) {
                 var item = e.target.closest('.mailbox-item');
@@ -324,6 +399,11 @@
             if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
                 closeEmailModal(modal);
             }
+            if (e.key === 'Escape' && composeModal && composeModal.classList.contains('active')) {
+                composeModal.classList.remove('active');
+                if (composeForm) composeForm.reset();
+                if (composeStatus) composeStatus.textContent = '';
+            }
         };
         document.addEventListener('keydown', activeKeydown);
     }
@@ -336,7 +416,7 @@
         main.className = 'main email-layout';
         main.innerHTML =
             '<aside class="email-sidebar">' +
-                '<button class="compose-btn">Redactar</button>' +
+                '<button class="compose-btn" id="composeBtn" type="button">Redactar</button>' +
                 '<nav class="mailbox-nav">' + mailboxLinksHtml() + '</nav>' +
             '</aside>' +
             '<section class="email-content">' +
@@ -346,7 +426,8 @@
                 '</div>' +
                 '<div class="email-list" id="emailList"></div>' +
             '</section>' +
-            previewModalHtml();
+            previewModalHtml() +
+            composeModalHtml();
 
         placeholder.innerHTML = '';
         placeholder.appendChild(main);

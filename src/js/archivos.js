@@ -104,7 +104,7 @@
         var previewFileName = filePreviewModal.querySelector('#previewFileName');
         var previewBody = filePreviewModal.querySelector('#previewBody');
         if (previewFileName) previewFileName.textContent = file.title;
-        if (previewBody) previewBody.innerHTML = '<p>' + file.content + '</p>';
+        if (previewBody) previewBody.innerHTML = file.content;
         resetPreviewState(filePreviewModal);
         filePreviewModal.classList.add('active');
     }

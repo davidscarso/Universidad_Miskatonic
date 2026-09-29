@@ -1,5 +1,3 @@
-localStorage.removeItem('disclaimerAccepted');
-
 window.renderAccesoRestringido = function() {
     const placeholder = document.getElementById('main-placeholder');
     if (!placeholder) return;

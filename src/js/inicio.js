@@ -3,7 +3,7 @@
 
     var newsArticles = {
         ia: {
-            title: 'Impulso para la aplicacion de Inteligencia artificial',
+            title: 'Impulso para la aplicación de inteligencia artificial',
             date: '15 de Octubre, 2024',
             summary: 'La universidad recibe importante donativo para el desarrollo de proyectos de inteligencia artificial y un centro de datos.',
             body:
@@ -12,18 +12,18 @@
                 '<p>El Departamento de Investigación Oculta participará en las primeras fases del proyecto, aportando los archivos históricos de la universidad como conjunto de entrenamiento para los modelos.</p>'
         },
         sueno: {
-            title: 'Tesis sobre EL Sueño Lúcido',
+            title: 'Tesis sobre el sueño lúcido',
             date: '12 de Octubre, 2020',
-            summary: 'Un importante tesis enel campo de la psicología y la neurociencia, que esta llevando las plasticidad mental mas allas de lo imaginable.',
+            summary: 'Una importante tesis en el campo de la psicología y la neurociencia lleva la plasticidad mental más allá de lo imaginable.',
             body:
                 '<p>Una tesis del área de psicología y neurociencia está llamando la atención de la comunidad académica: sostiene que la plasticidad mental puede llevarse más allá de lo imaginable mediante el entrenamiento del sueño lúcido.</p>' +
                 '<p>El estudio siguió a veinte voluntarios durante un año, registrando su actividad cerebral mientras dormían y midiendo su capacidad para reconocer que estaban soñando.</p>' +
                 '<p>Los resultados preliminares sugieren que, tras semanas de práctica, los participantes lograban mantener la lucidez durante periodos cada vez más largos. El jurado destacó la rigorosa metodología y recomendó ampliar la muestra.</p>'
         },
         hilos: {
-            title: 'Teoria de los Hilos Cuánticos',
+            title: 'Teoría de los hilos cuánticos',
             date: '8 de Octubre, 2015',
-            summary: 'Nueva teoria que esplicaria conecciones entre los diferentes planos de existencia.',
+            summary: 'Una nueva teoría busca explicar las conexiones entre los diferentes planos de existencia.',
             body:
                 '<p>El departamento de Física Teórica presentó una nueva teoría que explicaría conexiones entre los diferentes planos de existencia a partir de una red de hilos cuánticos invisibles al ojo humano.</p>' +
                 '<p>Según el modelo, cada evento deja una huella en dicha red, y ciertos fenómenos observados en Arkham podrían corresponder a interferencias entre planos.</p>' +
@@ -154,8 +154,8 @@
                     '<h2>Bienvenidos a la Universidad Kaliber</h2>' +
                     '<p class="hero-subtitle">Departamento de Investigación</p>' +
                     '<p class="hero-description">' +
-                        'Fundada en 1972, la Universidad Kaliber COMPLETAR ALGO ACA, ES UNA JOVEN UNIVERCIDAD PERO CON MENTES DE BRILLANTES  Y DURINSAS. CENTRO PUNTA E NEQUIPAMINTO PARA LA PATAGONIA. ' +
-                        'Area de investigacion recive doativos de uivescidades del estrajero com la de masachuset, y otros entes de eeuu, y de europa.' +
+                        'Fundada en 1972, la Universidad Kaliber es una joven institución dedicada a la investigación interdisciplinaria, con una comunidad de mentes brillantes y audaces. Su campus, en el corazón de la Patagonia, cuenta con equipamiento de vanguardia. ' +
+                        'El área de investigación recibe donaciones de universidades extranjeras, entre ellas instituciones de Massachusetts y otros centros de Estados Unidos y Europa.' +
                     '</p>' +
                 '</div>' +
             '</section>' +
