@@ -29,10 +29,11 @@ _Features completadas, en orden de implementación._
 21. **021 · Interacciones pendientes de Foro y Correo** — Notificaciones, detalle de temas y redacción simulada de correos
 22. **022 · Bloqueo de scroll del fondo con modal abierto** — Regla CSS `body:has(...)` + `overflow: hidden` para las 3 clases de modal, `scrollbar-gutter: stable` sin salto de layout y `overscroll-behavior: contain` en los contenidos
 23. **023 · Campana de notificaciones con sesión y error de login inline** — La campana pasa a mostrarse solo con sesión iniciada y queda a la derecha del nombre de usuario (orden: nombre → campana → Salir); las credenciales incorrectas muestran un mensaje `role="alert"` dentro de la modal de login con los inputs en rojo, reemplazando el `alert()`
+24. **024 · Imágenes reales en el sector de Archivos** — La carpeta Imágenes muestra miniaturas reales en la grilla y el detalle abre con la imagen a la izquierda y el detalle escrito actual a la derecha (`is-split`), apilándose en pantallas angostas; los `.txt` quedan igual
 
 ## Siguiente 🔜
 
-_No hay features pendientes. La siguiente feature libre es `024`._
+_No hay features pendientes. La siguiente feature libre es `025`._
 
 ## Backlog / ideas 💡
 
@@ -40,5 +41,5 @@ _No hay features pendientes. La siguiente feature libre es `024`._
 
 - **Alerta de login** — ~~reemplazar el `alert()` de credenciales incorrectas (`main.js`) por una modal con el mensaje~~ (resuelto en la 023, con mensaje inline en la modal de login).
 - **Contenido del inicio** — ~~texto con "COMPLETAR ALGO ACA" y errores tipográficos (`inicio.js`)~~ (resuelto en la 020); ~~links de noticias que salen del SPA hacia `acceso-restringido.html`~~ (resuelto en la 019).
-- **Optimizar imágenes** — `logos.png` (136 KB) se sirve en el header y `logo.png` (1.8 MB) + la hoja de propuestas ChatGPT quedaron sin uso en `src/assets/images/`.
+- **Optimizar imágenes** — `logos.png` (663 KB) se sirve en el header; los 3 PNG de `assets/images/Archivos/` (≈5 MB, de la 024) y `Fotos/Foto_Damian.png` (1.5 MB) se cargan sin comprimir. ~~`logo.png`, `logos3.png` y la hoja de propuestas ChatGPT sin uso~~ (eliminadas del repo).
 - **`opencode.json` con API key committeada** — rotar la clave y sacarla del repo (urgente, asunto de seguridad).

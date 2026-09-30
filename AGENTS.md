@@ -2,7 +2,7 @@
 
 ## Project Status
 
-Spec-driven development in progress. Features 001-023 implemented. Next free feature number: `024`.
+Spec-driven development in progress. Features 001-024 implemented. Next free feature number: `025`.
 
 - `spec/` — project constitution and feature specs
 - `src/` — all source code (HTML, CSS, JS)
@@ -31,7 +31,7 @@ A fictional Lovecraftian university website (Spanish-language content), companio
 The constitution (`spec/constitution/`) is authoritative. Features must conform to it.
 
 **To add a feature:**
-1. Create `spec/features/NNN-nombre-feature/` (next free number: `024`)
+1. Create `spec/features/NNN-nombre-feature/` (next free number: `025`)
 2. Write `spec.md` (what + acceptance criteria)
 3. Write `plan.md` (how, respecting tech-stack.md)
 4. Write `tasks.md` (checklist)
@@ -46,7 +46,7 @@ The constitution (`spec/constitution/`) is authoritative. Features must conform 
 - `spec/constitution/tech-stack.md` — technical constraints
 - `spec/constitution/roadmap.md` — feature status tracking
 - `spec/features/NNN-nombre-feature/` — template for new features (spec, plan, tasks)
-- `spec/features/001-inicio/` … `023-header-notificaciones-y-error-login/` — implemented features (001-023)
+- `spec/features/001-inicio/` … `024-imagenes-en-archivos/` — implemented features (001-024)
 - `src/js/navegacion.js` — hash router + access guard (views entry point)
 - `src/js/main.js` — login, modals, restricted-access panel, disclaimer
 - `opencode.json` — context7 MCP server configured (⚠ contains a committed API key: rotate it and move it out of the repo)

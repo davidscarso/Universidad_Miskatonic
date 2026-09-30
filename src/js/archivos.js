@@ -16,14 +16,20 @@
         },
         templo: {
             title: 'Templo submarino.jpg',
+            image: 'assets/images/Archivos/Templo submarino.png',
+            imageAlt: 'Vista del templo submarino de R\'lyeh',
             content: '<p>[IMAGEN: Vista del templo submarino de R\'lyeh]</p><p>Descripción: Estructura de piedra con ángulos imposibles, cubierta de algas y coral. Se observan símbolos extraños tallados en las paredes.</p><p>Fuente: Expedición Arkham, 1928</p>'
         },
         manuscrito: {
             title: 'Manuscrito antiguo.jpg',
+            image: 'assets/images/Archivos/Manuscrito antiguo.png',
+            imageAlt: 'Página del manuscrito antiguo',
             content: '<p>[IMAGEN: Página del manuscrito antiguo]</p><p>Descripción: Manuscrito en árabe con ilustraciones de entidades desconocidas. El texto parece describir rituales de invocación.</p><p>Estado: Parcialmente deteriorado</p>'
         },
         profesor: {
             title: 'Profesor Armitage.jpg',
+            image: 'assets/images/Archivos/Profesor Armitage.png',
+            imageAlt: 'Retrato del Profesor Henry Armitage',
             content: '<p>[IMAGEN: Retrato del Profesor Henry Armitage]</p><p>Cargo: Profesor de Lenguas Antiguas</p><p>Departamento: Filosofía y Letras</p><p>Especialización: Mitos de Cthulhu, Textos Antiguos</p>'
         },
         reporte: {
@@ -43,9 +49,9 @@
             { name: 'Notas de clase.txt', type: 'text', content: 'notas', meta: '3 KB • 10 Oct 1928', icon: '&#128196;' }
         ],
         imagenes: [
-            { name: 'Templo submarino.jpg', type: 'image', content: 'templo', meta: '150 KB • 14 Oct 1928', icon: '&#128444;' },
-            { name: 'Manuscrito antiguo.jpg', type: 'image', content: 'manuscrito', meta: '200 KB • 13 Oct 1928', icon: '&#128444;' },
-            { name: 'Profesor Armitage.jpg', type: 'image', content: 'profesor', meta: '85 KB • 11 Oct 1928', icon: '&#128444;' }
+            { name: 'Templo submarino.jpg', type: 'image', content: 'templo', meta: '150 KB • 14 Oct 1928', icon: '&#128444;', thumb: 'assets/images/Archivos/Templo submarino.png' },
+            { name: 'Manuscrito antiguo.jpg', type: 'image', content: 'manuscrito', meta: '200 KB • 13 Oct 1928', icon: '&#128444;', thumb: 'assets/images/Archivos/Manuscrito antiguo.png' },
+            { name: 'Profesor Armitage.jpg', type: 'image', content: 'profesor', meta: '85 KB • 11 Oct 1928', icon: '&#128444;', thumb: 'assets/images/Archivos/Profesor Armitage.png' }
         ],
         investigacion: [
             { name: 'Reporte expedición.txt', type: 'text', content: 'reporte', meta: '4 KB • 15 Oct 1928', icon: '&#128196;' },
@@ -70,7 +76,10 @@
             fileItem.className = 'file-item';
             fileItem.setAttribute('data-type', file.type);
             fileItem.setAttribute('data-content', file.content);
-            fileItem.innerHTML = '<div class="file-icon">' + file.icon + '</div><div class="file-name">' + file.name + '</div><div class="file-meta">' + file.meta + '</div>';
+            var media = file.thumb
+                ? '<div class="file-thumb"><img src="' + encodeURI(file.thumb) + '" alt=""></div>'
+                : '<div class="file-icon">' + file.icon + '</div>';
+            fileItem.innerHTML = media + '<div class="file-name">' + file.name + '</div><div class="file-meta">' + file.meta + '</div>';
             filesGrid.appendChild(fileItem);
         });
 
@@ -83,6 +92,16 @@
         }
     }
 
+    function buildPreviewBody(file) {
+        if (!file.image) {
+            return file.content;
+        }
+        return '<div class="preview-media">' +
+                '<img class="preview-media-img" src="' + encodeURI(file.image) + '" alt="' + file.imageAlt + '">' +
+            '</div>' +
+            '<div class="detail-body preview-detail">' + file.content + '</div>';
+    }
+
     function openFilePreview(contentType) {
         var filePreviewModal = document.getElementById('filePreviewModal');
         var file = fileContents[contentType];
@@ -91,7 +110,10 @@
         var previewFileName = filePreviewModal.querySelector('#previewFileName');
         var previewBody = filePreviewModal.querySelector('#previewBody');
         if (previewFileName) previewFileName.textContent = file.title;
-        if (previewBody) previewBody.innerHTML = file.content;
+        if (previewBody) {
+            previewBody.classList.toggle('is-split', !!file.image);
+            previewBody.innerHTML = buildPreviewBody(file);
+        }
         resetPreviewState(filePreviewModal);
         filePreviewModal.classList.add('active');
     }
