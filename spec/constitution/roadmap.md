@@ -28,16 +28,17 @@ _Features completadas, en orden de implementación._
 20. **020 · Correcciones de calidad y navegación** — Disclaimer persistente, HTML válido en previews, limpieza editorial y categorías funcionales del foro
 21. **021 · Interacciones pendientes de Foro y Correo** — Notificaciones, detalle de temas y redacción simulada de correos
 22. **022 · Bloqueo de scroll del fondo con modal abierto** — Regla CSS `body:has(...)` + `overflow: hidden` para las 3 clases de modal, `scrollbar-gutter: stable` sin salto de layout y `overscroll-behavior: contain` en los contenidos
+23. **023 · Campana de notificaciones con sesión y error de login inline** — La campana pasa a mostrarse solo con sesión iniciada y queda a la derecha del nombre de usuario (orden: nombre → campana → Salir); las credenciales incorrectas muestran un mensaje `role="alert"` dentro de la modal de login con los inputs en rojo, reemplazando el `alert()`
 
 ## Siguiente 🔜
 
-_No hay features pendientes. La siguiente feature libre es `023`._
+_No hay features pendientes. La siguiente feature libre es `024`._
 
 ## Backlog / ideas 💡
 
 > Cada feature nueva se crea como `features/NNN-nombre-feature/` con `spec.md`, `plan.md` y `tasks.md` antes de tocar código.
 
-- **Alerta de login** — reemplazar el `alert()` de credenciales incorrectas (`main.js`) por una modal con el mensaje (TODO pendiente en el código).
+- **Alerta de login** — ~~reemplazar el `alert()` de credenciales incorrectas (`main.js`) por una modal con el mensaje~~ (resuelto en la 023, con mensaje inline en la modal de login).
 - **Contenido del inicio** — ~~texto con "COMPLETAR ALGO ACA" y errores tipográficos (`inicio.js`)~~ (resuelto en la 020); ~~links de noticias que salen del SPA hacia `acceso-restringido.html`~~ (resuelto en la 019).
 - **Optimizar imágenes** — `logos.png` (136 KB) se sirve en el header y `logo.png` (1.8 MB) + la hoja de propuestas ChatGPT quedaron sin uso en `src/assets/images/`.
 - **`opencode.json` con API key committeada** — rotar la clave y sacarla del repo (urgente, asunto de seguridad).

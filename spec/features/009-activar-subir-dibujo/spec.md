@@ -16,15 +16,15 @@ En la feature 008 el foro pasó a ser una vista del index, pero los modales de "
 
 ## Criterios de aceptación
 
-- [ ] `index.html` contiene el modal de upload (`#uploadModal`) y el de notificaciones (`#notificationModal`)
-- [ ] En la vista foro del index, "Subir mi dibujo" abre el modal de upload (también si se entra al foro tras un swap, sin recargar)
-- [ ] El modal de upload permite elegir archivo, muestra el nombre y al publicar confirma y resetea el formulario
-- [ ] El modal de upload se cierra por X, clic en el fondo y tecla Escape
-- [ ] Hay un botón de notificaciones con badge en el header del index que abre su modal
-- [ ] "Marcar todas como leídas" limpia los no leídos y oculta el badge
-- [ ] Funciona con y sin sesión, en `index.html` y en `index.html#foro`, y tras swaps inicio↔foro
-- [ ] Los modales no rompen las vistas inicio/foro ni la navegación por hash
-- [ ] Funciona con `file://` (sin servidor)
+- [x] `index.html` contiene el modal de upload (`#uploadModal`) y el de notificaciones (`#notificationModal`)
+- [x] En la vista foro del index, "Subir mi dibujo" abre el modal de upload (también si se entra al foro tras un swap, sin recargar)
+- [x] El modal de upload permite elegir archivo, muestra el nombre y al publicar confirma y resetea el formulario
+- [x] El modal de upload se cierra por X, clic en el fondo y tecla Escape
+- [x] Hay un botón de notificaciones con badge en el header del index que abre su modal
+- [x] "Marcar todas como leídas" limpia los no leídos y oculta el badge
+- [x] Funciona con y sin sesión, en `index.html` y en `index.html#foro`, y tras swaps inicio↔foro
+- [x] Los modales no rompen las vistas inicio/foro ni la navegación por hash
+- [x] Funciona con `file://` (sin servidor)
 
 ## Fuera de alcance
 

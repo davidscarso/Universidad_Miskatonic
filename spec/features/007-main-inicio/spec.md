@@ -17,13 +17,13 @@ Así, `index.html` queda como un "cascarón" con el header, el login y los scrip
 
 ## Criterios de aceptación
 
-- [ ] `index.html` no contiene el `<main>` hardcodeado: solo un `#main-placeholder`
-- [ ] El contenido inyectado se ve idéntico al actual (hero, Últimas Noticias, Accesos Rápidos)
-- [ ] Al hacer clic en "Inicio" desde el nav se muestra el index con el contenido completo
-- [ ] El contenido se inyecta vía JavaScript desde un único archivo `inicio.js`
-- [ ] La inyección no rompe el login/logout ni los links restringidos del contenido
-- [ ] Funciona abriendo `index.html` con doble clic (`file://`), sin servidor
-- [ ] Se mantiene el diseño responsive actual (CSS sin cambios)
+- [x] `index.html` no contiene el `<main>` hardcodeado: solo un `#main-placeholder`
+- [x] El contenido inyectado se ve idéntico al actual (hero, Últimas Noticias, Accesos Rápidos)
+- [x] Al hacer clic en "Inicio" desde el nav se muestra el index con el contenido completo
+- [x] El contenido se inyecta vía JavaScript desde un único archivo `inicio.js`
+- [x] La inyección no rompe el login/logout ni los links restringidos del contenido
+- [x] Funciona abriendo `index.html` con doble clic (`file://`), sin servidor
+- [x] Se mantiene el diseño responsive actual (CSS sin cambios)
 
 ## Fuera de alcance
 

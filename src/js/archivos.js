@@ -26,14 +26,6 @@
             title: 'Profesor Armitage.jpg',
             content: '<p>[IMAGEN: Retrato del Profesor Henry Armitage]</p><p>Cargo: Profesor de Lenguas Antiguas</p><p>Departamento: Filosofía y Letras</p><p>Especialización: Mitos de Cthulhu, Textos Antiguos</p>'
         },
-        excavacion: {
-            title: 'Excavación Arkham.mp4',
-            content: '<p>[VIDEO: Excavación en Arkham]</p><p>Duración: 15:30</p><p>Descripción: Registro de la excavación arqueológica en las ruinas subterráneas de Arkham. Se observan estructuras de origen desconocido.</p><p>Fecha: Octubre, 1928</p>'
-        },
-        conferencia: {
-            title: 'Conferencia Cthulhu.mp4',
-            content: '<p>[VIDEO: Conferencia sobre los Mitos de Cthulhu]</p><p>Duración: 45:00</p><p>Descripción: Conferencia impartida por el Profesor Armitage sobre los hallazgos recientes y su relación con los mitos de Cthulhu.</p><p>Fecha: 15 de Octubre, 1928</p>'
-        },
         reporte: {
             title: 'Reporte expedición.txt',
             content: '<p>REPORTE DE EXPEDICIÓN</p><p>Destino: Ruinas subterráneas de Arkham</p><p>Fecha: Octubre, 1928</p><br><p>Resumen:</p><p>Se encontraron estructuras subterráneas con inscripciones en una lengua desconocida. Los símbolos parecen corresponder a una variante del Necronomicón.</p><p>Recomendación: Continuar la investigación con precaución.</p>'
@@ -55,10 +47,6 @@
             { name: 'Manuscrito antiguo.jpg', type: 'image', content: 'manuscrito', meta: '200 KB • 13 Oct 1928', icon: '&#128444;' },
             { name: 'Profesor Armitage.jpg', type: 'image', content: 'profesor', meta: '85 KB • 11 Oct 1928', icon: '&#128444;' }
         ],
-        videos: [
-            { name: 'Excavación Arkham.mp4', type: 'video', content: 'excavacion', meta: '25 MB • 14 Oct 1928', icon: '&#127910;' },
-            { name: 'Conferencia Cthulhu.mp4', type: 'video', content: 'conferencia', meta: '120 MB • 15 Oct 1928', icon: '&#127910;' }
-        ],
         investigacion: [
             { name: 'Reporte expedición.txt', type: 'text', content: 'reporte', meta: '4 KB • 15 Oct 1928', icon: '&#128196;' },
             { name: 'Análisis manuscritos.txt', type: 'text', content: 'analisis', meta: '5 KB • 8 Oct 1928', icon: '&#128196;' }
@@ -68,7 +56,6 @@
     var folderNames = {
         documentos: 'Documentos',
         imagenes: 'Imágenes',
-        videos: 'Videos',
         investigacion: 'Investigación'
     };
 
@@ -219,11 +206,7 @@
                         '<div class="folder-item" data-folder="imagenes">' +
                             '<span class="folder-icon">&#128194;</span>' +
                             '<span class="folder-name">Imágenes</span>' +
-                        '</div>' +
-                        '<div class="folder-item" data-folder="videos">' +
-                            '<span class="folder-icon">&#128190;</span>' +
-                            '<span class="folder-name">Videos</span>' +
-                        '</div>' +
+                        '</div>' +                        
                         '<div class="folder-item" data-folder="investigacion">' +
                             '<span class="folder-icon">&#128193;</span>' +
                             '<span class="folder-name">Investigación</span>' +

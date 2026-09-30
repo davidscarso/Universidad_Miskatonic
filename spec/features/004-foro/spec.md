@@ -18,16 +18,16 @@ El foro es una funcionalidad central del sitio universitario. Permite a los "inv
 
 ## Criterios de aceptación
 
-- [ ] Página de foro accesible desde navegación principal
-- [ ] 3 categorías visibles: Sueños, Compulsiones, Dibujos
-- [ ] Lista de temas fake en cada categoría
-- [ ] Botón "Subir mi dibujo" visible
-- [ ] Modal de carga de archivo al hacer clic en el botón
-- [ ] Campana de notificaciones en el header
-- [ ] Modal de notificaciones al hacer clic en la campana
-- [ ] Header y footer consistentes
-- [ ] Tema oscuro aplicado
-- [ ] Responsive funciona correctamente
+- [x] Página de foro accesible desde navegación principal
+- [x] 3 categorías visibles: Sueños, Compulsiones, Dibujos
+- [x] Lista de temas fake en cada categoría
+- [x] Botón "Subir mi dibujo" visible
+- [x] Modal de carga de archivo al hacer clic en el botón
+- [x] Campana de notificaciones en el header
+- [x] Modal de notificaciones al hacer clic en la campana
+- [x] Header y footer consistentes
+- [x] Tema oscuro aplicado
+- [x] Responsive funciona correctamente
 
 ## Fuera de alcance
 

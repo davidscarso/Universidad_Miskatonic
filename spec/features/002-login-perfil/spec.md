@@ -12,16 +12,16 @@ Los usuarios necesitan diferenciar entre contenido público (inicio, foro) y con
 
 ## Criterios de aceptación
 
-- [ ] Links de correo y escritorio deshabilitados por defecto
-- [ ] Tooltip "Necesitas iniciar sesión" en mouseover sobre links deshabilitados
-- [ ] Al loguearse, links de correo y escritorio se habilitan
-- [ ] Botón de login muestra nombre de usuario al estar logueado
-- [ ] Botón de usuario enlaza a página de perfil
-- [ ] Icono de logout visible al lado del nombre de usuario
-- [ ] Al hacer logout, links se deshabilitan y botón vuelve a "Iniciar Sesión"
-- [ ] Página de perfil accesible desde botón de usuario
-- [ ] Perfil muestra links a home, correo y escritorio
-- [ ] Responsive funciona correctamente
+- [x] Links de correo y escritorio deshabilitados por defecto
+- [x] Tooltip "Necesitas iniciar sesión" en mouseover sobre links deshabilitados
+- [x] Al loguearse, links de correo y escritorio se habilitan
+- [x] Botón de login muestra nombre de usuario al estar logueado
+- [x] Botón de usuario enlaza a página de perfil
+- [x] Icono de logout visible al lado del nombre de usuario
+- [x] Al hacer logout, links se deshabilitan y botón vuelve a "Iniciar Sesión"
+- [x] Página de perfil accesible desde botón de usuario
+- [x] Perfil muestra links a home, correo y escritorio
+- [x] Responsive funciona correctamente
 
 ## Fuera de alcance
 

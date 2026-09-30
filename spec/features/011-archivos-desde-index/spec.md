@@ -19,18 +19,18 @@ A diferencia de 008/010, Archivos **no es contenido estático**: tiene navegaci�
 
 ## Criterios de aceptación
 
-- [ ] Existe `src/js/archivos.js` con el `<main>` del gestor (sidebar de carpetas + grilla de archivos + modal de vista previa) y `window.renderArchivos()`
-- [ ] La lógica de carpetas/preview (hoy en `main.js`) queda en `archivos.js` **y sale de `main.js`** (sin duplicados ni código muerto)
-- [ ] En `index.html`, al hacer clic en "Archivos" (con sesión): se muestra el gestor con la carpeta "Documentos" activa por defecto, el link "Archivos" queda `active` y los demás lo pierden, sin recargar
-- [ ] Cambiar de carpeta actualiza la grilla, el título y el contador (comportamiento igual a la página actual)
-- [ ] Clic en un archivo abre la vista previa; Cerrar (X), clic en el fondo y Escape la cierran; minimizar/maximizar funcionan y el tamaño se resetea al cerrar
-- [ ] Al abrir `index.html#archivos` (refresh o link externo) se muestra el gestor con "Archivos" activo
-- [ ] Sin sesión, el link "Archivos" del nav sigue bloqueado (no navega ni hace swap)
-- [ ] El nav "Archivos" de `perfil.html` apunta a `index.html#archivos`
-- [ ] El quick-link "Archivos" de la portada apunta a `#archivos`
-- [ ] `archivos.html` se elimina y no queda ningún link roto hacia él
-- [ ] Cambiar varias veces de vista (Archivos ↔ Inicio/Foro/Correo) no acumula listeners ni rompe carpetas/preview
-- [ ] Funciona con `file://` (sin fetch) y mantiene el responsive actual (CSS sin cambios)
+- [x] Existe `src/js/archivos.js` con el `<main>` del gestor (sidebar de carpetas + grilla de archivos + modal de vista previa) y `window.renderArchivos()`
+- [x] La lógica de carpetas/preview (hoy en `main.js`) queda en `archivos.js` **y sale de `main.js`** (sin duplicados ni código muerto)
+- [x] En `index.html`, al hacer clic en "Archivos" (con sesión): se muestra el gestor con la carpeta "Documentos" activa por defecto, el link "Archivos" queda `active` y los demás lo pierden, sin recargar
+- [x] Cambiar de carpeta actualiza la grilla, el título y el contador (comportamiento igual a la página actual)
+- [x] Clic en un archivo abre la vista previa; Cerrar (X), clic en el fondo y Escape la cierran; minimizar/maximizar funcionan y el tamaño se resetea al cerrar
+- [x] Al abrir `index.html#archivos` (refresh o link externo) se muestra el gestor con "Archivos" activo
+- [x] Sin sesión, el link "Archivos" del nav sigue bloqueado (no navega ni hace swap)
+- [x] El nav "Archivos" de `perfil.html` apunta a `index.html#archivos`
+- [x] El quick-link "Archivos" de la portada apunta a `#archivos`
+- [x] `archivos.html` se elimina y no queda ningún link roto hacia él
+- [x] Cambiar varias veces de vista (Archivos ↔ Inicio/Foro/Correo) no acumula listeners ni rompe carpetas/preview
+- [x] Funciona con `file://` (sin fetch) y mantiene el responsive actual (CSS sin cambios)
 
 ## Fuera de alcance
 

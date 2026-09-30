@@ -138,7 +138,7 @@ a:hover {
 .user-container {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .profile-btn {
@@ -150,11 +150,7 @@ a:hover {
     transition: all 0.3s ease;
 }
 
-.profile-btn:hover {
-    color: var(--text-primary);
-    border-bottom-color: var(--link-color);
-}
-
+.profile-btn:hover,
 .profile-btn.active {
     color: var(--text-primary);
     border-bottom-color: var(--accent-primary);
@@ -865,6 +861,20 @@ a:hover {
     box-shadow: 0 0 15px var(--shadow-color);
 }
 
+.login-error {
+    background-color: rgba(255, 0, 0, 0.08);
+    border: 1px solid var(--accent-glow);
+    border-left: 3px solid var(--accent-glow);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding: 0.6rem 0.75rem;
+}
+
+.form-group input.field-error {
+    border-color: var(--accent-glow);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .header-container {
@@ -1152,7 +1162,8 @@ a:hover {
 /* Notification Button */
 .notification-btn {
     background-color: transparent;
-    border: 1px solid var(--border-color);
+    border: none;
+    border-bottom: 2px solid transparent;
     color: var(--text-secondary);
     width: 2.5rem;
     height: 2.5rem;
@@ -1165,7 +1176,7 @@ a:hover {
 }
 
 .notification-btn:hover {
-    border-color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
     color: var(--text-primary);
 }
 

@@ -12,6 +12,6 @@
 - [x] Actualizar contador, título, lista y estado activo de la categoría.
 - [x] Comprobar el comportamiento en `index.html#foro` tras recargar.
 - [x] Ejecutar `node --check` sobre todos los archivos JavaScript.
-- [ ] Realizar smoke test de Inicio, Foro, Disclaimer y Archivos.
-- [ ] Validar los criterios de aceptación de `spec.md` en navegador.
+- [x] Realizar smoke test de Inicio, Foro, Disclaimer y Archivos.
+- [x] Validar los criterios de aceptación de `spec.md` en navegador.
 - [x] Mover la feature a "Hecho" en `../../constitution/roadmap.md`.

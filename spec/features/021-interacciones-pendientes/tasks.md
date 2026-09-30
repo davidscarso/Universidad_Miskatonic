@@ -14,7 +14,7 @@
 - [x] Confirmar que no se alteran las bandejas después de recargar.
 - [x] Regresar al Foro y comprobar que la subida de dibujos sigue funcionando.
 - [x] Ejecutar `node --check` sobre todos los archivos JavaScript.
-- [ ] Realizar smoke test de Foro, Correo, Notificaciones y Upload.
-- [ ] Probar los modales en escritorio y móvil.
-- [ ] Validar los criterios de aceptación de `spec.md` en navegador.
+- [x] Realizar smoke test de Foro, Correo, Notificaciones y Upload.
+- [x] Probar los modales en escritorio y móvil.
+- [x] Validar los criterios de aceptación de `spec.md` en navegador.
 - [x] Mover la feature a "Hecho" en `../../constitution/roadmap.md`.

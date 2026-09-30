@@ -18,13 +18,13 @@ Esto generaba confusión sobre cuál era la universidad "oficial" del proyecto.
 
 ## Criterios de aceptación
 
-- [ ] El footer se muestra en todas las páginas con el mismo contenido
-- [ ] El contenido del footer es: "© 2026 Universidad Kaliber. Todos los derechos reservados." / "Neuquén, NEUQUÉN, Argentina."
-- [ ] Los links del footer (Aviso Legal, Política de Privacidad, Contacto) están presentes
-- [ ] El footer se inyecta vía JavaScript desde un único archivo `footer.js`
-- [ ] No hay HTML de footer duplicado en ningún archivo `.html`
-- [ ] El header de todas las páginas muestra "Universidad Kaliber" (consistencia)
-- [ ] El footer se ve correctamente en desktop y mobile (responsive)
+- [x] El footer se muestra en todas las páginas con el mismo contenido
+- [x] El contenido del footer es: "© 2026 Universidad Kaliber. Todos los derechos reservados." / "Neuquén, NEUQUÉN, Argentina."
+- [x] Los links del footer (Aviso Legal, Política de Privacidad, Contacto) están presentes
+- [x] El footer se inyecta vía JavaScript desde un único archivo `footer.js`
+- [x] No hay HTML de footer duplicado en ningún archivo `.html`
+- [x] El header de todas las páginas muestra "Universidad Kaliber" (consistencia)
+- [x] El footer se ve correctamente en desktop y mobile (responsive)
 
 ## Fuera de alcance
 

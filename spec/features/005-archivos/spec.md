@@ -12,15 +12,15 @@ Permite a los usuarios acceder y explorar archivos de la universidad de forma vi
 
 ## Criterios de aceptación
 
-- [ ] Página de archivos accesible desde navegación principal
-- [ ] Panel izquierdo con estructura de carpetas y subcarpetas
-- [ ] Panel derecho con iconos de archivos (texto, imágenes, videos)
-- [ ] Al hacer clic en un archivo, se abre modal con contenido
-- [ ] Modal redimensionable (ajustable en tamaño)
-- [ ] Iconos representativos según tipo de archivo
-- [ ] Header y footer consistentes
-- [ ] Tema oscuro aplicado
-- [ ] Responsive funciona correctamente
+- [x] Página de archivos accesible desde navegación principal
+- [x] Panel izquierdo con estructura de carpetas y subcarpetas
+- [x] Panel derecho con iconos de archivos (texto, imágenes, videos)
+- [x] Al hacer clic en un archivo, se abre modal con contenido
+- [x] Modal redimensionable (ajustable en tamaño)
+- [x] Iconos representativos según tipo de archivo
+- [x] Header y footer consistentes
+- [x] Tema oscuro aplicado
+- [x] Responsive funciona correctamente
 
 ## Tipos de archivos soportados
 

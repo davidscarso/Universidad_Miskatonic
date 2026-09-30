@@ -29,7 +29,7 @@ src/
 
 La `spec/` es la constitución del proyecto. Toda feature nueva sigue este flujo:
 
-1. Crear `spec/features/NNN-nombre-feature/` (siguiente libre: `023`)
+1. Crear `spec/features/NNN-nombre-feature/` (siguiente libre: `024`)
 2. Escribir `spec.md` — qué hace y criterios de aceptación
 3. Escribir `plan.md` — cómo se implementa respetando `spec/constitution/tech-stack.md`
 4. Escribir `tasks.md` — checklist
@@ -40,4 +40,4 @@ La `spec/` es la constitución del proyecto. Toda feature nueva sigue este flujo
 
 ## Estado
 
-Features 001-022 implementadas (ver `spec/constitution/roadmap.md`). Stack: HTML + CSS + JavaScript vanilla, sin framework, sin build.
+Features 001-023 implementadas (ver `spec/constitution/roadmap.md`). Stack: HTML + CSS + JavaScript vanilla, sin framework, sin build.

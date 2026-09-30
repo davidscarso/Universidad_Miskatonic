@@ -1,3 +1,13 @@
+window.limpiarErrorLogin = function() {
+    var loginError = document.getElementById('loginError');
+    if (loginError) {
+        loginError.hidden = true;
+    }
+    document.querySelectorAll('.login-form input.field-error').forEach(function(input) {
+        input.classList.remove('field-error');
+    });
+};
+
 window.renderAccesoRestringido = function() {
     const placeholder = document.getElementById('main-placeholder');
     if (!placeholder) return;
@@ -30,6 +40,7 @@ window.renderAccesoRestringido = function() {
     const loginModal = document.getElementById('loginModal');
     if (restrictedLoginBtn && loginModal) {
         restrictedLoginBtn.addEventListener('click', function() {
+            window.limpiarErrorLogin();
             loginModal.classList.add('active');
         });
     }
@@ -39,9 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginBtn = document.getElementById('loginBtn');
     const profileBtn = document.getElementById('profileBtn');
     const logoutBtn = document.getElementById('logoutBtn');
+    const notificationBtn = document.getElementById('notificationBtn');
     const loginModal = document.getElementById('loginModal');
     const closeModal = document.getElementById('closeModal');
     const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
 
     function toggleRestrictedLinks(enable) {
         const restrictedLinks = document.querySelectorAll('[data-restricted="true"]');
@@ -80,6 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (logoutBtn) {
             logoutBtn.style.display = 'flex';
         }
+        if (notificationBtn) {
+            notificationBtn.style.display = 'flex';
+        }
         toggleRestrictedLinks(true);
     }
 
@@ -93,6 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (logoutBtn) {
             logoutBtn.style.display = 'none';
         }
+        if (notificationBtn) {
+            notificationBtn.style.display = 'none';
+        }
         toggleRestrictedLinks(false);
     }
 
@@ -105,12 +124,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (loginBtn && loginModal) {
         loginBtn.addEventListener('click', function() {
+            window.limpiarErrorLogin();
             loginModal.classList.add('active');
         });
     }
 
     if (closeModal && loginModal) {
         closeModal.addEventListener('click', function() {
+            window.limpiarErrorLogin();
             loginModal.classList.remove('active');
         });
     }
@@ -118,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (loginModal) {
         loginModal.addEventListener('click', function(e) {
             if (e.target === loginModal) {
+                window.limpiarErrorLogin();
                 loginModal.classList.remove('active');
             }
         });
@@ -130,15 +152,30 @@ document.addEventListener('DOMContentLoaded', function() {
             const password = document.getElementById('password').value;
 
             if (username === 'SALCEDO.D' && password === '136136') {
+                window.limpiarErrorLogin();
                 loginModal.classList.remove('active');
                 localStorage.setItem('loggedIn', 'true');
                 localStorage.setItem('username', 'Damián Salcedo');
                 updateUIForLoggedInUser('Damián Salcedo');
                 refreshRestrictedView();
             } else {
-                alert('Credenciales incorrectas. Acceso denegado.');
-                // TODO: agradar una modal con el mensaje. cerrar el login.
+                window.limpiarErrorLogin();
+                if (loginError) {
+                    loginError.hidden = false;
+                }
+                loginForm.querySelectorAll('input').forEach(function(input) {
+                    input.classList.add('field-error');
+                });
+                const passwordInput = document.getElementById('password');
+                passwordInput.focus();
+                passwordInput.select();
             }
+        });
+
+        loginForm.querySelectorAll('input').forEach(function(input) {
+            input.addEventListener('input', function() {
+                window.limpiarErrorLogin();
+            });
         });
     }
 
@@ -223,7 +260,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Forum: Notification Modal
-    const notificationBtn = document.getElementById('notificationBtn');
     const notificationModal = document.getElementById('notificationModal');
     const closeNotificationModal = document.getElementById('closeNotificationModal');
     const markAllReadBtn = document.getElementById('markAllReadBtn');

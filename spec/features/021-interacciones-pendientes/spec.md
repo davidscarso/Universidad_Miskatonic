@@ -12,7 +12,7 @@ Algunas vistas muestran controles que parecen funcionales pero no responden: el 
 
 ## Criterios de aceptación
 
-- [x] El botón de notificaciones del header es visible y abre el modal existente.
+- [x] El botón de notificaciones del header es visible solo con sesión iniciada y abre el modal existente.
 - [x] El modal de notificaciones permite marcar todas como leídas.
 - [x] Marcar todas como leídas elimina los estados no leídos y oculta el badge.
 - [x] Cada tema del foro puede abrir un detalle de solo lectura.

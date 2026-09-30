@@ -16,17 +16,17 @@ El foro deja de ser una página separada (`foro.html`) y pasa a ser una vista de
 
 ## Criterios de aceptación
 
-- [ ] Existe `src/js/foro.js` con el HTML del `<main>` del foro (sidebar de categorías + lista de temas)
-- [ ] En `index.html`, al hacer clic en "Foro" del nav: se muestra el main del foro, el link "Foro" queda `active` y el de "Inicio" deja de estarlo, sin recargar la página
-- [ ] En `index.html`, al hacer clic en "Inicio": se muestra el main de la portada y el link "Inicio" queda `active`
-- [ ] Al abrir `index.html` se muestra la portada con "Inicio" activo
-- [ ] Al abrir `index.html#foro` (refresh o link desde otra página) se muestra el foro con "Foro" activo
-- [ ] El nav "Inicio"/"Foro" de `email.html`, `archivos.html`, `perfil.html` apunta a `index.html` / `index.html#foro`
-- [ ] El quick-link "Foro de Investigación" de la portada apunta a `#foro`
-- [ ] `foro.html` se elimina y no queda ningún link roto hacia él
-- [ ] Los links restringidos (Correo/Archivos) del contenido inyectado siguen bloqueados tras el swap (delegación de eventos)
-- [ ] Los links restringidos se habilitan al iniciar sesión tras un swap (login en index)
-- [ ] Funciona con `file://` (sin fetch) y mantiene el responsive actual (CSS sin cambios)
+- [x] Existe `src/js/foro.js` con el HTML del `<main>` del foro (sidebar de categorías + lista de temas)
+- [x] En `index.html`, al hacer clic en "Foro" del nav: se muestra el main del foro, el link "Foro" queda `active` y el de "Inicio" deja de estarlo, sin recargar la página
+- [x] En `index.html`, al hacer clic en "Inicio": se muestra el main de la portada y el link "Inicio" queda `active`
+- [x] Al abrir `index.html` se muestra la portada con "Inicio" activo
+- [x] Al abrir `index.html#foro` (refresh o link desde otra página) se muestra el foro con "Foro" activo
+- [x] El nav "Inicio"/"Foro" de `email.html`, `archivos.html`, `perfil.html` apunta a `index.html` / `index.html#foro`
+- [x] El quick-link "Foro de Investigación" de la portada apunta a `#foro`
+- [x] `foro.html` se elimina y no queda ningún link roto hacia él
+- [x] Los links restringidos (Correo/Archivos) del contenido inyectado siguen bloqueados tras el swap (delegación de eventos)
+- [x] Los links restringidos se habilitan al iniciar sesión tras un swap (login en index)
+- [x] Funciona con `file://` (sin fetch) y mantiene el responsive actual (CSS sin cambios)
 
 ## Fuera de alcance
 

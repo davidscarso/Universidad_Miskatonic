@@ -16,15 +16,15 @@ Continuación del patrón de la feature 008 aplicado al correo: `email.html` dej
 
 ## Criterios de aceptación
 
-- [ ] Existe `src/js/correo.js` con el `<main>` del correo (sidebar de bandejas + lista de mensajes) y `window.renderCorreo()`
-- [ ] En `index.html`, al hacer clic en "Correo" (con sesión): se muestra el main del correo, el link "Correo" queda `active` y los demás lo pierden, sin recargar
-- [ ] Al abrir `index.html#correo` (refresh o link externo) se muestra el correo con "Correo" activo
-- [ ] Sin sesión, el link "Correo" del nav sigue bloqueado (no navega ni hace swap)
-- [ ] El nav "Correo" de `archivos.html` y `perfil.html` apunta a `index.html#correo`
-- [ ] El quick-link "Correo Interno" de la portada apunta a `#correo`
-- [ ] `email.html` se elimina y no queda ningún link roto hacia él
-- [ ] Los hash internos del correo (`#inbox`, `#sent`, `#drafts`, `#deleted`) no cambian la vista
-- [ ] Funciona con `file://` (sin fetch) y mantiene el responsive actual (CSS sin cambios)
+- [x] Existe `src/js/correo.js` con el `<main>` del correo (sidebar de bandejas + lista de mensajes) y `window.renderCorreo()`
+- [x] En `index.html`, al hacer clic en "Correo" (con sesión): se muestra el main del correo, el link "Correo" queda `active` y los demás lo pierden, sin recargar
+- [x] Al abrir `index.html#correo` (refresh o link externo) se muestra el correo con "Correo" activo
+- [x] Sin sesión, el link "Correo" del nav sigue bloqueado (no navega ni hace swap)
+- [x] El nav "Correo" de `archivos.html` y `perfil.html` apunta a `index.html#correo`
+- [x] El quick-link "Correo Interno" de la portada apunta a `#correo`
+- [x] `email.html` se elimina y no queda ningún link roto hacia él
+- [x] Los hash internos del correo (`#inbox`, `#sent`, `#drafts`, `#deleted`) no cambian la vista
+- [x] Funciona con `file://` (sin fetch) y mantiene el responsive actual (CSS sin cambios)
 
 ## Fuera de alcance
 

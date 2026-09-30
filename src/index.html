@@ -28,12 +28,13 @@
                 </ul>
             </nav>
             <div class="user-container">
-                <button class="notification-btn" id="notificationBtn" type="button" title="Notificaciones" aria-label="Abrir notificaciones">
+                <button class="login-btn" id="loginBtn">Iniciar Sesión</button>
+                <a href="#perfil" class="profile-btn" id="profileBtn" style="display: none;"></a>
+                <button class="notification-btn" id="notificationBtn" type="button" title="Notificaciones"
+                    aria-label="Abrir notificaciones" style="display: none;">
                     <span class="notification-icon">&#128276;</span>
                     <span class="notification-badge" id="notificationBadge">3</span>
                 </button>
-                <button class="login-btn" id="loginBtn">Iniciar Sesión</button>
-                <a href="#perfil" class="profile-btn" id="profileBtn" style="display: none;"></a>
                 <button class="logout-btn" id="logoutBtn" style="display: none;">Salir</button>
             </div>
         </div>
@@ -56,6 +57,7 @@
                     <label for="password">Contraseña:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
+                <p class="login-error" id="loginError" role="alert" hidden>Credenciales incorrectas. Acceso denegado.</p>
                 <button type="submit" class="submit-btn">Ingresar</button>
             </form>
         </div>
