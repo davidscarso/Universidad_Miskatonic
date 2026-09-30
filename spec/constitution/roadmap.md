@@ -30,10 +30,11 @@ _Features completadas, en orden de implementación._
 22. **022 · Bloqueo de scroll del fondo con modal abierto** — Regla CSS `body:has(...)` + `overflow: hidden` para las 3 clases de modal, `scrollbar-gutter: stable` sin salto de layout y `overscroll-behavior: contain` en los contenidos
 23. **023 · Campana de notificaciones con sesión y error de login inline** — La campana pasa a mostrarse solo con sesión iniciada y queda a la derecha del nombre de usuario (orden: nombre → campana → Salir); las credenciales incorrectas muestran un mensaje `role="alert"` dentro de la modal de login con los inputs en rojo, reemplazando el `alert()`
 24. **024 · Imágenes reales en el sector de Archivos** — La carpeta Imágenes muestra miniaturas reales en la grilla y el detalle abre con la imagen a la izquierda y el detalle escrito actual a la derecha (`is-split`), apilándose en pantallas angostas; los `.txt` quedan igual
+25. **025 · Analítica de visitas** — `analitica.js` envía métricas agregadas a GoatCounter (`unicaliber.goatcounter.com`, sin cookies y sin banner de consentimiento): cada vista de la SPA se cuenta como una página (`Inicio`, `Foro`, `Correo`, `Archivos`, `Perfil`) en la carga inicial y en cada `hashchange`; solo se activa en producción (hostname `.github.io`), así que `file://` y el servidor local no ensucian el dashboard
 
 ## Siguiente 🔜
 
-_No hay features pendientes. La siguiente feature libre es `025`._
+_No hay features pendientes. La siguiente feature libre es `026`._
 
 ## Backlog / ideas 💡
 

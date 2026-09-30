@@ -19,6 +19,7 @@ src/
 │   ├── correo.js       ← vista correo
 │   ├── archivos.js     ← gestor de archivos con preview
 │   ├── perfil.js       ← vista perfil + modal de foto ampliada
+│   ├── analitica.js    ← analítica de visitas (GoatCounter, solo en GitHub Pages)
 │   └── footer.js       ← footer compartido (se inyecta en todas las páginas)
 └── assets/images/      ← favicon.png, logos.png, Fotos/, Archivos/
 ```
@@ -29,7 +30,7 @@ src/
 
 La `spec/` es la constitución del proyecto. Toda feature nueva sigue este flujo:
 
-1. Crear `spec/features/NNN-nombre-feature/` (siguiente libre: `025`)
+1. Crear `spec/features/NNN-nombre-feature/` (siguiente libre: `026`)
 2. Escribir `spec.md` — qué hace y criterios de aceptación
 3. Escribir `plan.md` — cómo se implementa respetando `spec/constitution/tech-stack.md`
 4. Escribir `tasks.md` — checklist
@@ -40,4 +41,4 @@ La `spec/` es la constitución del proyecto. Toda feature nueva sigue este flujo
 
 ## Estado
 
-Features 001-024 implementadas (ver `spec/constitution/roadmap.md`). Stack: HTML + CSS + JavaScript vanilla, sin framework, sin build.
+Features 001-025 implementadas (ver `spec/constitution/roadmap.md`). Stack: HTML + CSS + JavaScript vanilla, sin framework, sin build. En producción (GitHub Pages) mide visitas agregadas con GoatCounter (sin cookies, sin banner de consentimiento); para no contabilizar tus propias visitas, abre la URL con `#toggle-goatcounter` o usa *Settings → Ignore IPs* en el dashboard.
