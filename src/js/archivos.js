@@ -39,6 +39,10 @@
         analisis: {
             title: 'Análisis manuscritos.txt',
             content: '<p>ANÁLISIS DE MANUSCRITOS</p><p>Fecha: 8 de Octubre, 1928</p><br><p>Manuscritos analizados: 5</p><p>Idiomas identificados: Árabe, Latín, Desconocido</p><p>Temas principales:</p><p>1. Invocaciones a entidades cósmicas</p><p>2. Descripciones de dimensiones alternas</p><p>3. Ritual de apertura de portales</p><p>Conclusión: Los manuscritos contienen información potencialmente peligrosa.</p>'
+        },
+        reporteILA: {
+            title: 'Reporte ILA.txt',
+            content: '<p>REPORTE ILA</p><p>Generado por: Kaliber AI (nodo de cálculo 136)</p><p>Fecha: 16 de Octubre, 1928</p><br><p>El análisis automático de manuscritos quedó detenido tras un fallo en el inicio del modelo. El último estado registrado fue del 98% del proceso.</p><p>Para revisar la sesión completa, ejecute el simulador de terminal:</p><p><a href="#" class="terminal-launch">&#9656; Ejecutar simulador de terminal (ILA)</a></p><p>Nota: el operador deberá confirmar la continuación dentro de la propia terminal.</p>'
         }
     };
 
@@ -55,7 +59,8 @@
         ],
         investigacion: [
             { name: 'Reporte expedición.txt', type: 'text', content: 'reporte', meta: '4 KB • 15 Oct 1928', icon: '&#128196;' },
-            { name: 'Análisis manuscritos.txt', type: 'text', content: 'analisis', meta: '5 KB • 8 Oct 1928', icon: '&#128196;' }
+            { name: 'Análisis manuscritos.txt', type: 'text', content: 'analisis', meta: '5 KB • 8 Oct 1928', icon: '&#128196;' },
+            { name: 'Reporte ILA.txt', type: 'text', content: 'reporteILA', meta: '6 KB • 16 Oct 1928', icon: '&#128187;' }
         ]
     };
 
@@ -173,6 +178,14 @@
 
         if (filePreviewModal) {
             filePreviewModal.addEventListener('click', function(e) {
+                var launch = e.target.closest ? e.target.closest('.terminal-launch') : null;
+                if (launch) {
+                    e.preventDefault();
+                    if (typeof window.abrirTerminalILA === 'function') {
+                        window.abrirTerminalILA();
+                    }
+                    return;
+                }
                 if (e.target === filePreviewModal) {
                     closePreview(filePreviewModal);
                 }
@@ -193,6 +206,7 @@
         }
         activeKeydown = function(e) {
             if (e.key === 'Escape' && filePreviewModal) {
+                if (document.querySelector('.terminal-modal.active')) return;
                 var modal = document.getElementById('filePreviewModal');
                 if (modal && modal.classList.contains('active')) {
                     closePreview(modal);
@@ -274,10 +288,33 @@
                         '<p>Contenido del archivo...</p>' +
                     '</div>' +
                 '</div>' +
+            '</div>' +
+            '<div class="modal terminal-modal" id="terminalModal">' +
+                '<div class="modal-content terminal-content">' +
+                    '<div class="modal-header">' +
+                        '<h3 id="terminalTitle">Terminal ILA — simulador de servidores</h3>' +
+                        '<div class="modal-controls">' +
+                            '<button type="button" class="modal-control-btn" id="terminalMaximizeBtn" title="Maximizar">' +
+                                '<span class="icon-maximize">&#9633;</span><span class="icon-restore">&#10697;</span>' +
+                            '</button>' +
+                            '<button type="button" class="modal-control-btn close-btn" id="terminalCloseBtn" title="Cerrar">&times;</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="modal-body terminal-body">' +
+                        '<div class="terminal-output" id="terminalOutput"></div>' +
+                        '<div class="terminal-input-line is-disabled" id="terminalInputLine">' +
+                            '<span class="terminal-prompt">ila@kaliber:~$</span>' +
+                            '<input type="text" id="terminalInput" autocomplete="off" spellcheck="false" disabled>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
             '</div>';
 
         placeholder.innerHTML = '';
         placeholder.appendChild(main);
         bindHandlers(main);
+        if (typeof window.bindTerminalILA === 'function') {
+            window.bindTerminalILA(main);
+        }
     };
 })();
