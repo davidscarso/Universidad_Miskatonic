@@ -18,33 +18,68 @@
 
     var SECUENCIA_INICIAL = [
         { t: BANNER, c: 'term-banner', d: 300 },
-        { t: 'Kaliber AI repartamente', c: 'term-subtitle', d: 450 },
+        { t: 'Kaliber AI department', c: 'term-subtitle', d: 450 },
         { t: '', d: 200 },
         { t: 'KaliberOS 2.6 — nodo de cálculo 136', d: 350 },
         { t: 'Conectando con servidor remoto (kaliber-01)… listo', d: 400 },
-        { t: 'Cargando modelo ILA-7 [############----] 80%', d: 500 },
+        { prog: { prefijo: 'Cargando modelo ILA-7 ', desde: 0, hasta: 80, celdas: 20 }, c: 'term-progress', d: 1500 },
         { t: 'ERROR E-MOD-13: fallo al iniciar el modelo', c: 'term-error', d: 650 },
-        { t: 'Estado de análisis: [█████████████▓] 98%', c: 'term-progress', d: 500 },
+        { prog: { prefijo: 'Estado de análisis: ', desde: 0, hasta: 98, celdas: 20 }, c: 'term-progress', d: 1500 },
         { t: '', d: 200 },
         { t: '¿Desea continuar? Escriba "Continuar" y pulse Enter.', d: 350, a: habilitarInput }
     ];
 
     var SECUENCIA_REANUDACION = [
         { t: 'Reanudando análisis desde el nodo 136…', d: 400 },
-        { t: 'Verificando bloques de memoria [####################] OK', d: 500 },
+        { prog: { prefijo: 'Verificando bloques de memoria ', desde: 0, hasta: 100, celdas: 20, sufijo: ' OK' }, c: 'term-progress', d: 1500 },
         { t: 'Sincronizando pesos del modelo ILA-7… 98% → 99%', d: 550 },
         { t: 'ERROR FATAL: el modelo ha colapsado (código 0xA1).', c: 'term-error', d: 600 },
         { t: '', d: 250 },
         { t: 'Se requiere reinicio manual en la terminal 136 para continuar.', c: 'term-error term-blink', d: 500, a: deshabilitarInput }
     ];
 
-    function agregarLinea(texto, clase) {
-        if (!output) return;
+    function crearLinea(clase) {
+        if (!output) return null;
         var linea = document.createElement('div');
         linea.className = 'term-line' + (clase ? ' ' + clase : '');
-        linea.textContent = texto || '\u00a0';
         output.appendChild(linea);
         output.scrollTop = output.scrollHeight;
+        return linea;
+    }
+
+    function agregarLinea(texto, clase) {
+        var linea = crearLinea(clase);
+        if (linea) linea.textContent = texto || '\u00a0';
+    }
+
+    function pintarCarga(prog, pct, celdas) {
+        var rango = prog.hasta - prog.desde || 1;
+        var ratio = (pct - prog.desde) / rango;
+        var llenos = ratio >= 1 ? celdas : Math.floor(ratio * celdas);
+        var barra = '';
+        for (var i = 0; i < celdas; i++) {
+            if (i < llenos) barra += '█';
+            else if (i === llenos && ratio < 1) barra += '▓';
+            else barra += '░';
+        }
+        return prog.prefijo + '[' + barra + '] ' + pct + '%' + (prog.sufijo || '');
+    }
+
+    function programarCarga(paso, inicio) {
+        var linea = crearLinea(paso.c);
+        if (!linea) return;
+        var prog = paso.prog;
+        var celdas = prog.celdas || 20;
+        var intervalo = (paso.d || 0) / (celdas + 1);
+        for (var k = 0; k <= celdas; k++) {
+            (function(k) {
+                programar(function() {
+                    var pct = Math.round(prog.desde + (prog.hasta - prog.desde) * (k / celdas));
+                    linea.textContent = pintarCarga(prog, pct, celdas);
+                    output.scrollTop = output.scrollHeight;
+                }, intervalo * k);
+            })(k);
+        }
     }
 
     function programar(fn, delay) {
@@ -63,11 +98,18 @@
     function reproducir(secuencia) {
         var acumulado = 0;
         secuencia.forEach(function(paso) {
+            var inicio = acumulado;
             acumulado += paso.d || 0;
-            programar(function() {
-                if (paso.t !== undefined) agregarLinea(paso.t, paso.c);
-                if (paso.a) paso.a();
-            }, acumulado);
+            if (paso.prog) {
+                programar(function() {
+                    programarCarga(paso, inicio);
+                }, inicio);
+            } else {
+                programar(function() {
+                    if (paso.t !== undefined) agregarLinea(paso.t, paso.c);
+                    if (paso.a) paso.a();
+                }, inicio);
+            }
         });
     }
 

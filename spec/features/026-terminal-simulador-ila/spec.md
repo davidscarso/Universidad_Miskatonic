@@ -9,12 +9,12 @@ Un archivo nuevo en **Archivos → Investigación**, `Reporte ILA.txt`, contiene
 La secuencia que reproduce es siempre la misma (ficticia):
 
 1. Banner ASCII de bloques **ILA** en dorado + subtítulo **"Kaliber AI repartamente"**.
-2. Arranque ficticio (`KaliberOS 2.6 — nodo de cálculo 136`, conexión al servidor remoto, carga del modelo ILA-7).
+2. Arranque ficticio (`KaliberOS 2.6 — nodo de cálculo 136`, conexión al servidor remoto) y **carga del modelo ILA-7 animada**: `Cargando modelo ILA-7 [░▓█] 0% → 80%`, la barra se rellena bloque por bloque con el contador subiendo.
 3. **Mensaje de error de inicio de modelo** en rojo (`ERROR E-MOD-13: fallo al iniciar el modelo`).
-4. Línea **`Estado de análisis: [█████████████▓] 98%`**.
+4. Línea **`Estado de análisis: [░▓█]`** con barra animada bloque a bloque del 0% al **98%**.
 5. Prompt: `¿Desea continuar? Escriba "Continuar" y pulse Enter` con input real (`ila@kaliber:~$`).
 6. Si la respuesta **no** es `continuar`: eco del texto + en rojo *"el comando no es correcto. Vuelva a intentarlo"* y vuelve a pedirlo.
-7. Si la respuesta **es** `Continuar`: 3-4 mensajes ficticios de reanudación que terminan en **fallo**: línea en rojo con **parpadeo** *"Se requiere reinicio manual en la terminal 136 para continuar"*, input deshabilitado y la modal queda muerta hasta que el usuario la cierre.
+7. Si la respuesta **es** `Continuar`: 3-4 mensajes ficticios de reanudación (con la verificación de memoria animada `0% → 100% OK`) que terminan en **fallo**: línea en rojo con **parpadeo** *"Se requiere reinicio manual en la terminal 136 para continuar"*, input deshabilitado y la modal queda muerta hasta que el usuario la cierre.
 
 ## Por qué
 
@@ -29,7 +29,7 @@ El contenido de la novela necesita un "momento" interactivo: la IA de la univers
 - [x] La modal usa la monospace del sitio y los colores existentes: dorado `--link-color` para banner/prompt, rojo `--accent-glow` para errores, sin tokens de color nuevos.
 - [x] Aparece el banner ASCII `ILA` con el subtítulo `Kaliber AI repartamente`.
 - [x] Aparece el mensaje de error de inicio de modelo.
-- [x] Aparece la línea de estado de análisis al 98%.
+- [x] Las tres cargas (modelo 0→80%, análisis 0→98%, memoria 0→100% `OK`) se rellenan **secuencialmente** bloque por bloque con el contador de % subiendo en cada paso; el smoke verifica que el % avanza entre dos muestras y que el texto final de cada barra es exacto.
 - [x] El input está deshabilitado hasta el prompt de confirmación, y se enfoca solo cuando se habilita.
 - [x] Escribir cualquier cosa distinta de `continuar` muestra el mensaje de comando incorrecto y permite reintentar.
 - [x] Escribir `Continuar` (con mayúsculas, minúsculas o rodeado de espacios) ejecuta la secuencia de reanudación.
