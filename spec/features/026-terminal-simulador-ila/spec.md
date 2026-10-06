@@ -8,7 +8,7 @@ Un archivo nuevo en **Archivos → Investigación**, `Reporte ILA.txt`, contiene
 
 La secuencia que reproduce es siempre la misma (ficticia):
 
-1. Banner ASCII de bloques **ILA** en dorado + subtítulo **"Kaliber AI repartamente"**.
+1. Banner ASCII de bloques **ILA** en dorado + subtítulo **"Kaliber AI department"**.
 2. Arranque ficticio (`KaliberOS 2.6 — nodo de cálculo 136`, conexión al servidor remoto) y **carga del modelo ILA-7 animada**: `Cargando modelo ILA-7 [░▓█] 0% → 80%`, la barra se rellena bloque por bloque con el contador subiendo.
 3. **Mensaje de error de inicio de modelo** en rojo (`ERROR E-MOD-13: fallo al iniciar el modelo`).
 4. Línea **`Estado de análisis: [░▓█]`** con barra animada bloque a bloque del 0% al **98%**.
@@ -27,7 +27,7 @@ El contenido de la novela necesita un "momento" interactivo: la IA de la univers
 - [x] Dentro de la preview hay un enlace que, al hacer clic, **no altera el hash** de la SPA y abre la modal de terminal.
 - [x] La modal mide 80% del ancho y 80% del alto de la ventana (`getBoundingClientRect` ≈ 80vw/80vh).
 - [x] La modal usa la monospace del sitio y los colores existentes: dorado `--link-color` para banner/prompt, rojo `--accent-glow` para errores, sin tokens de color nuevos.
-- [x] Aparece el banner ASCII `ILA` con el subtítulo `Kaliber AI repartamente`.
+- [x] Aparece el banner ASCII `ILA` con el subtítulo `Kaliber AI department`.
 - [x] Aparece el mensaje de error de inicio de modelo.
 - [x] Las tres cargas (modelo 0→80%, análisis 0→98%, memoria 0→100% `OK`) se rellenan **secuencialmente** bloque por bloque con el contador de % subiendo en cada paso; el smoke verifica que el % avanza entre dos muestras y que el texto final de cada barra es exacto.
 - [x] El input está deshabilitado hasta el prompt de confirmación, y se enfoca solo cuando se habilita.

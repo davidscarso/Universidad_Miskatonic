@@ -96,8 +96,21 @@
                     <textarea id="drawingDescription" name="drawingDescription" rows="3"
                         placeholder="Describe tu visión o experiencia..."></textarea>
                 </div>
+                <p class="upload-error" id="uploadFileError" role="alert" hidden>
+                    Debés seleccionar un archivo para publicar tu dibujo.
+                </p>
                 <button type="submit" class="submit-btn">Publicar dibujo</button>
             </form>
+            <div class="upload-step" id="uploadProcess" hidden>
+                <p class="upload-phase-text" id="uploadPhaseText"></p>
+                <div class="upload-progress" id="uploadProgress"></div>
+                <div class="upload-log" id="uploadLog"></div>
+            </div>
+            <div class="upload-step" id="uploadResult" hidden>
+                <p class="match-summary" id="matchSummary"></p>
+                <div class="match-table" id="matchList"></div>
+                <button type="button" class="submit-btn" id="uploadResultClose">Cerrar</button>
+            </div>
         </div>
     </div>
 
@@ -168,6 +181,7 @@
     <script src="js/analitica.js"></script>
     <script src="js/navegacion.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/subida.js"></script>
     <script src="js/footer.js"></script>
 </body>
 

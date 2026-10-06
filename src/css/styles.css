@@ -2221,3 +2221,133 @@ body:has(.disclaimer-modal.active) {
         min-height: 0;
     }
 }
+
+[hidden] {
+    display: none !important;
+}
+
+.upload-error {
+    background-color: rgba(255, 0, 0, 0.08);
+    border: 1px solid var(--accent-glow);
+    border-left: 3px solid var(--accent-glow);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding: 0.6rem 0.75rem;
+}
+
+.upload-step {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.upload-phase-text {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.upload-progress {
+    color: var(--link-color);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+}
+
+.upload-log {
+    min-height: 3.2rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.upload-log-line {
+    margin-bottom: 0.2rem;
+}
+
+.match-summary {
+    color: var(--text-primary);
+    font-weight: bold;
+    margin: 0;
+}
+
+.match-table {
+    display: flex;
+    flex-direction: column;
+    max-height: 42vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid var(--border-color);
+}
+
+.match-row {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr auto auto;
+    gap: 0.75rem;
+    align-items: baseline;
+    padding: 0.45rem 0.6rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
+
+.match-row:last-child {
+    border-bottom: none;
+}
+
+.match-head {
+    position: sticky;
+    top: 0;
+    background-color: var(--header-bg);
+    color: var(--link-color);
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.match-nro {
+    color: var(--link-color);
+    font-family: 'Courier New', monospace;
+}
+
+.match-nombre {
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.match-usuario {
+    color: var(--text-secondary);
+}
+
+.match-fecha {
+    color: var(--text-muted);
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+}
+
+#uploadResultClose {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+}
+
+@media (max-width: 600px) {
+    .match-row {
+        grid-template-columns: 1fr;
+        gap: 0.1rem;
+    }
+
+    .match-head {
+        display: none;
+    }
+
+    .match-nombre {
+        white-space: normal;
+    }
+}

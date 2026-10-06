@@ -211,54 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Forum: Upload Drawing Modal
-    const uploadModal = document.getElementById('uploadModal');
-    const closeUploadModal = document.getElementById('closeUploadModal');
-    const uploadForm = document.getElementById('uploadForm');
-    const fileUploadArea = document.getElementById('fileUploadArea');
-    const drawingFileInput = document.getElementById('drawingFile');
-    const fileNameDisplay = document.getElementById('fileName');
-
-    if (closeUploadModal && uploadModal) {
-        closeUploadModal.addEventListener('click', function() {
-            uploadModal.classList.remove('active');
-        });
-    }
-
-    if (uploadModal) {
-        uploadModal.addEventListener('click', function(e) {
-            if (e.target === uploadModal) {
-                uploadModal.classList.remove('active');
-            }
-        });
-    }
-
-    if (fileUploadArea && drawingFileInput) {
-        fileUploadArea.addEventListener('click', function() {
-            drawingFileInput.click();
-        });
-
-        drawingFileInput.addEventListener('change', function() {
-            if (this.files && this.files.length > 0) {
-                fileNameDisplay.textContent = this.files[0].name;
-            } else {
-                fileNameDisplay.textContent = 'Ningún archivo seleccionado';
-            }
-        });
-    }
-
-    if (uploadForm) {
-        uploadForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Dibujo publicado exitosamente (simulación)');
-            uploadModal.classList.remove('active');
-            uploadForm.reset();
-            if (fileNameDisplay) {
-                fileNameDisplay.textContent = 'Ningún archivo seleccionado';
-            }
-        });
-    }
-
     // Forum: Notification Modal
     const notificationModal = document.getElementById('notificationModal');
     const closeNotificationModal = document.getElementById('closeNotificationModal');
@@ -313,9 +265,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape') {
             if (loginModal && loginModal.classList.contains('active')) {
                 loginModal.classList.remove('active');
-            }
-            if (uploadModal && uploadModal.classList.contains('active')) {
-                uploadModal.classList.remove('active');
             }
             if (notificationModal && notificationModal.classList.contains('active')) {
                 notificationModal.classList.remove('active');

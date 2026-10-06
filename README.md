@@ -21,6 +21,7 @@ src/
 │   ├── terminal.js     ← terminal simulador ILA (modal del 80%, Reporte ILA)
 │   ├── perfil.js       ← vista perfil + modal de foto ampliada
 │   ├── analitica.js    ← analítica de visitas (GoatCounter, solo en GitHub Pages)
+│   ├── subida.js       ← wizard de subida de dibujo (proceso + análisis ficticios)
 │   └── footer.js       ← footer compartido (se inyecta en todas las páginas)
 └── assets/images/      ← favicon.png, logos.png, Fotos/, Archivos/
 ```
@@ -31,7 +32,7 @@ src/
 
 La `spec/` es la constitución del proyecto. Toda feature nueva sigue este flujo:
 
-1. Crear `spec/features/NNN-nombre-feature/` (siguiente libre: `027`)
+1. Crear `spec/features/NNN-nombre-feature/` (siguiente libre: `028`)
 2. Escribir `spec.md` — qué hace y criterios de aceptación
 3. Escribir `plan.md` — cómo se implementa respetando `spec/constitution/tech-stack.md`
 4. Escribir `tasks.md` — checklist
@@ -42,4 +43,4 @@ La `spec/` es la constitución del proyecto. Toda feature nueva sigue este flujo
 
 ## Estado
 
-Features 001-026 implementadas (ver `spec/constitution/roadmap.md`). Stack: HTML + CSS + JavaScript vanilla, sin framework, sin build. En producción (GitHub Pages) mide visitas agregadas con GoatCounter (sin cookies, sin banner de consentimiento); para no contabilizar tus propias visitas, abre la URL con `#toggle-goatcounter` o usa *Settings → Ignore IPs* en el dashboard.
+Features 001-027 implementadas (ver `spec/constitution/roadmap.md`). Stack: HTML + CSS + JavaScript vanilla, sin framework, sin build. En producción (GitHub Pages) mide visitas agregadas con GoatCounter (sin cookies, sin banner de consentimiento); para no contabilizar tus propias visitas, abre la URL con `#toggle-goatcounter` o usa *Settings → Ignore IPs* en el dashboard.
