@@ -1723,7 +1723,6 @@ body:has(.disclaimer-modal.active) {
 
 .preview-content {
     width: 600px;
-    height: 400px;
     min-width: 400px;
     min-height: 300px;
     max-width: none;
@@ -2287,7 +2286,7 @@ body:has(.disclaimer-modal.active) {
 
 .match-row {
     display: grid;
-    grid-template-columns: 5.5rem 1fr auto auto;
+    grid-template-columns: 5.5rem 1fr auto;
     gap: 0.75rem;
     align-items: baseline;
     padding: 0.45rem 0.6rem;
@@ -2322,10 +2321,6 @@ body:has(.disclaimer-modal.active) {
     white-space: nowrap;
 }
 
-.match-usuario {
-    color: var(--text-secondary);
-}
-
 .match-fecha {
     color: var(--text-muted);
     font-family: 'Courier New', monospace;
@@ -2350,4 +2345,21 @@ body:has(.disclaimer-modal.active) {
     .match-nombre {
         white-space: normal;
     }
+}
+
+a.match-nombre-link,
+a.match-nombre-link:visited {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+a.match-nombre-link:hover {
+    color: var(--link-hover);
+}
+
+.match-censor-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
 }

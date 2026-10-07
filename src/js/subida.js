@@ -20,6 +20,8 @@
     var matchList = document.getElementById('matchList');
     var resultClose = document.getElementById('uploadResultClose');
     var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+    var previewModal = null;
+    var registrosActuales = [];
 
     var TITULOS = [
         'Visión del abismo',
@@ -37,18 +39,7 @@
         'La figura detrás del vidrio',
         'Nudo de símbolos'
     ];
-    var USUARIOS = [
-        'Prof. Armitage',
-        'Decano West',
-        'Est. López',
-        'Dr. Rivera',
-        'Dra. Salvatierra',
-        'Prof. Paredes',
-        'N. Ferrer',
-        'Damián Salcedo',
-        'V. Gómez',
-        'R. Méndez'
-    ];
+
     var MESES = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
     var LOGS_ANALISIS = [
         'Extrayendo trazos del dibujo…',
@@ -119,14 +110,12 @@
 
     function generarRegistros(n) {
         var titulos = barajar(TITULOS).slice(0, n);
-        var usuarios = barajar(USUARIOS).slice(0, n);
         var usados = {};
         var registros = [];
         for (var i = 0; i < n; i++) {
             registros.push({
                 nombre: titulos[i],
                 nro: generarNro(usados),
-                usuario: usuarios[i],
                 fecha: fechaAleatoria()
             });
         }
@@ -181,16 +170,16 @@
     function mostrarResultado() {
         var n = 1 + entero(10);
         var registros = generarRegistros(n);
+        registrosActuales = registros;
         summary.textContent = n === 1
             ? 'Tu dibujo coincide con 1 dibujo anterior:'
             : 'Tu dibujo coincide con ' + n + ' dibujos anteriores:';
         var html = '<div class="match-row match-head">' +
-            '<span>Nro</span><span>Nombre</span><span>Usuario</span><span>Fecha</span></div>';
-        registros.forEach(function(r) {
+            '<span>Nro</span><span>Nombre</span><span>Fecha</span></div>';
+        registros.forEach(function(r, idx) {
             html += '<div class="match-row">' +
                 '<span class="match-nro">' + r.nro + '</span>' +
-                '<span class="match-nombre">' + r.nombre + '</span>' +
-                '<span class="match-usuario">' + r.usuario + '</span>' +
+                '<a href="#" class="match-nombre match-nombre-link" data-idx="' + idx + '">' + r.nombre + '</a>' +
                 '<span class="match-fecha">' + r.fecha + '</span></div>';
         });
         matchList.innerHTML = html;
@@ -198,6 +187,63 @@
         resultBox.hidden = false;
         procesando = false;
         if (submitBtn) submitBtn.disabled = false;
+    }
+
+    function previewModalHtml() {
+        return '<div class="modal preview-modal" id="matchPreviewModal">' +
+            '<div class="modal-content preview-content">' +
+                '<div class="modal-header">' +
+                    '<h3 id="matchPreviewTitle">Registro</h3>' +
+                    '<div class="modal-controls">' +
+                        '<button type="button" class="modal-control-btn" id="matchPreviewMaximize" title="Maximizar">' +
+                            '<span class="icon-maximize">&#9633;</span><span class="icon-restore">&#10697;</span>' +
+                        '</button>' +
+                        '<button type="button" class="modal-control-btn close-btn" id="matchPreviewClose" title="Cerrar">&times;</button>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="modal-body" id="matchPreviewBody"></div>' +
+            '</div>' +
+        '</div>';
+    }
+
+    function censorHtml(nro) {
+        return '<div class="restricted-content">' +
+            '<div class="restricted-stamp">&#9888;</div>' +
+            '<h2 class="restricted-title">Contenido Censurado</h2>' +
+            '<div class="restricted-divider"></div>' +
+            '<p class="restricted-message">Esta imagen ha sido retirada del archivo digital por la Oficina de Censura de la Universidad Kaliber. Su consulta no está autorizada.</p>' +
+            '<div class="restricted-case">' +
+                '<span class="case-label">Registro</span>' +
+                '<span class="case-number">' + nro + '</span>' +
+            '</div>' +
+        '</div>';
+    }
+
+    function abrirPreview(idx) {
+        var registro = registrosActuales[idx];
+        if (!previewModal || !registro) return;
+        var titulo = previewModal.querySelector('#matchPreviewTitle');
+        var cuerpo = previewModal.querySelector('#matchPreviewBody');
+        var content = previewModal.querySelector('.preview-content');
+        if (content) content.classList.remove('is-maximized');
+        if (titulo) titulo.textContent = registro.nombre;
+        if (cuerpo) {
+            if (idx === 0) {
+                cuerpo.className = 'modal-body avatar-preview-body';
+                cuerpo.innerHTML = '<img class="avatar-preview-img" src="assets/images/Archivos/REG0136_OZ.png" alt="' + registro.nombre + '">';
+            } else {
+                cuerpo.className = 'modal-body match-censor-body';
+                cuerpo.innerHTML = censorHtml(registro.nro);
+            }
+        }
+        previewModal.classList.add('active');
+    }
+
+    function cerrarPreview() {
+        if (!previewModal) return;
+        previewModal.classList.remove('active');
+        var content = previewModal.querySelector('.preview-content');
+        if (content) content.classList.remove('is-maximized');
     }
 
     function arrancar(nombreArchivo) {
@@ -209,9 +255,9 @@
         logBox.innerHTML = '';
         progress.textContent = '';
         reproducir([
-            { fase: 'Fase 1 de 2 · Subida', prefijo: 'Subiendo ' + nombreArchivo + ' ', d: 1500 },
-            { fase: 'Fase 2 de 2 · Análisis', prefijo: 'Analizando coincidencias ', d: 2000, logs: LOGS_ANALISIS },
-            { d: 250, a: mostrarResultado }
+            { fase: 'Fase 1 de 2 · Subida', prefijo: 'Subiendo ' + nombreArchivo + ' ', d: 2500 },
+            { fase: 'Fase 2 de 2 · Análisis', prefijo: 'Analizando coincidencias ', d: 3500, logs: LOGS_ANALISIS },
+            { d: 550, a: mostrarResultado }
         ]);
     }
 
@@ -227,12 +273,14 @@
         phaseText.textContent = '';
         matchList.innerHTML = '';
         summary.textContent = '';
+        registrosActuales = [];
         if (fileError) fileError.hidden = true;
         form.reset();
         if (fileName) fileName.textContent = 'Ningún archivo seleccionado';
     }
 
     function cerrarModal() {
+        cerrarPreview();
         modal.classList.remove('active');
         resetModal();
     }
@@ -245,10 +293,40 @@
         if (e.target === modal) cerrarModal();
     });
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            cerrarModal();
+    document.body.insertAdjacentHTML('beforeend', previewModalHtml());
+    previewModal = document.getElementById('matchPreviewModal');
+
+    if (matchList && previewModal) {
+        matchList.addEventListener('click', function(e) {
+            var enlace = e.target.closest ? e.target.closest('a.match-nombre-link') : null;
+            if (!enlace) return;
+            e.preventDefault();
+            abrirPreview(parseInt(enlace.getAttribute('data-idx'), 10));
+        });
+    }
+
+    if (previewModal) {
+        var previewClose = previewModal.querySelector('#matchPreviewClose');
+        var previewMaximize = previewModal.querySelector('#matchPreviewMaximize');
+        if (previewClose) previewClose.addEventListener('click', cerrarPreview);
+        if (previewMaximize) {
+            previewMaximize.addEventListener('click', function() {
+                var content = previewModal.querySelector('.preview-content');
+                if (content) content.classList.toggle('is-maximized');
+            });
         }
+        previewModal.addEventListener('click', function(e) {
+            if (e.target === previewModal) cerrarPreview();
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key !== 'Escape') return;
+        if (previewModal && previewModal.classList.contains('active')) {
+            cerrarPreview();
+            return;
+        }
+        if (modal.classList.contains('active')) cerrarModal();
     });
 
     if (fileArea && fileInput) {
