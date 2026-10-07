@@ -63,6 +63,19 @@
         </div>
     </div>
 
+    <div class="modal freeze-modal" id="freezeModal">
+        <div class="freeze-content">
+            <div class="freeze-symbols" id="freezeSymbolsTop"></div>
+            <div class="freeze-center">
+                <div class="freeze-title">■■ BLOQUEO DE SEGURIDAD — NODO 136 ■■</div>
+                <p class="freeze-message">Señal de la terminal 136 corrompida. El nodo requiere reinicio manual.</p>
+                <pre class="freeze-dump" id="freezeDump"></pre>
+                <p class="freeze-alert">— ESPERANDO REINICIO MANUAL EN LA TERMINAL 136 —</p>
+            </div>
+            <div class="freeze-symbols" id="freezeSymbolsBottom"></div>
+        </div>
+    </div>
+
     <div class="modal" id="uploadModal">
         <div class="modal-content">
             <span class="close-modal" id="closeUploadModal">&times;</span>
@@ -173,7 +186,8 @@
     </div>
 
     <script src="js/archivos.js"></script>
-    <script src="js/terminal.js"></script>
+    <script src="js/bloqueo.js"></script>
+<script src="js/terminal.js"></script>
     <script src="js/correo.js"></script>
     <script src="js/foro.js"></script>
     <script src="js/inicio.js"></script>

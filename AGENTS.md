@@ -2,7 +2,7 @@
 
 ## Project Status
 
-Spec-driven development in progress. Features 001-027 implemented. Next free feature number: `028`.
+Spec-driven development in progress. Features 001-028 implemented. Next free feature number: `029`.
 
 - `spec/` — project constitution and feature specs
 - `src/` — all source code (HTML, CSS, JS)
@@ -31,7 +31,7 @@ A fictional Lovecraftian university website (Spanish-language content), companio
 The constitution (`spec/constitution/`) is authoritative. Features must conform to it.
 
 **To add a feature:**
-1. Create `spec/features/NNN-nombre-feature/` (next free number: `028`)
+1. Create `spec/features/NNN-nombre-feature/` (next free number: `029`)
 2. Write `spec.md` (what + acceptance criteria)
 3. Write `plan.md` (how, respecting tech-stack.md)
 4. Write `tasks.md` (checklist)
@@ -46,10 +46,11 @@ The constitution (`spec/constitution/`) is authoritative. Features must conform 
 - `spec/constitution/tech-stack.md` — technical constraints
 - `spec/constitution/roadmap.md` — feature status tracking
 - `spec/features/NNN-nombre-feature/` — template for new features (spec, plan, tasks)
-- `spec/features/001-inicio/` … `027-subida-dibujo-analisis/` — implemented features (001-027)
+- `spec/features/001-inicio/` … `028-congelacion-pantalla-ila/` — implemented features (001-028)
 - `src/js/navegacion.js` — hash router + access guard (views entry point)
 - `src/js/main.js` — login, modals, restricted-access panel, disclaimer
 - `src/js/subida.js` — upload drawing wizard (027: process steps + fake results)
+- `src/js/bloqueo.js` — freeze overlay (028: full-screen lock 7s after ILA terminal failure)
 - `opencode.json` — context7 MCP server configured (⚠ contains a committed API key: rotate it and move it out of the repo)
 
 ## Style

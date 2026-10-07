@@ -35,7 +35,7 @@
         { t: 'Sincronizando pesos del modelo ILA-7… 98% → 99%', d: 550 },
         { t: 'ERROR FATAL: el modelo ha colapsado (código 0xA1).', c: 'term-error', d: 600 },
         { t: '', d: 250 },
-        { t: 'Se requiere reinicio manual en la terminal 136 para continuar.', c: 'term-error term-blink', d: 500, a: deshabilitarInput }
+        { t: 'Se requiere reinicio manual en la terminal 136 para continuar.', c: 'term-error term-blink', d: 500, a: finalizarSecuencia }
     ];
 
     function crearLinea(clase) {
@@ -126,6 +126,11 @@
         inputLine.classList.add('is-disabled');
     }
 
+    function finalizarSecuencia() {
+        deshabilitarInput();
+        if (window.programarCongelacionILA) window.programarCongelacionILA();
+    }
+
     function procesarEntrada() {
         if (!input || input.disabled) return;
         var valor = input.value;
@@ -156,6 +161,7 @@
     function cerrarTerminal() {
         if (!modal) return;
         limpiarTimers();
+        if (window.cancelarCongelacionILA) window.cancelarCongelacionILA();
         modal.classList.remove('active');
     }
 
