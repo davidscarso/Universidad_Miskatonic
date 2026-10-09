@@ -54,6 +54,16 @@ La modal de bloqueo es **global** (markup estático en `index.html`, como `login
 
 5. `src/index.html` — `<script src="js/bloqueo.js"></script>` junto a los demás.
 
+## Consola secreta (ampliación)
+
+1. `src/index.html` — markup `#consoleModal` justo después de `#freezeModal`, **réplica del markup de la terminal 026** (`archivos.js` líneas 292-311) con ids `console*`: `.modal.console-modal` > `.modal-content.console-content` con `.modal-header` (título + `#consoleMaximizeBtn` `□/⧉` + `#consoleCloseBtn` `×`), `.modal-body.console-body` con `#consoleOutput` y `.console-input-line` (prompt `ila@kaliber:~$` + `#consoleInput`).
+2. `src/js/bloqueo.js` —
+   - Estado `consolaAbierta` + bindings al cargar (markup ya existe): `×` y clic en el fondo → `cerrarConsola()`; maximizar → alterna `.is-maximized` y `title`; `#consoleInput` `Enter` → `procesarEntradaConsola()`.
+   - `abrirConsola()`: limpia `#consoleOutput`, pinta el banner (3 líneas), resetea input/maximizado, `.active` y `input.focus()`.
+   - `procesarEntradaConsola()`: entrada vacía (trim) → no hace nada; si no, eco `ila@kaliber:~$ <texto>` + `ERROR: comando no reconocido.` (ambos con `textContent`) y limpia el input.
+   - Listener de `Escape` (capture, ya existente): con freeze activo siempre `stopImmediatePropagation` **y además** alterna: consola abierta → `cerrarConsola()`, cerrada → `abrirConsola()`.
+3. `src/css/styles.css` — bloque `.console-*`: `.console-modal { z-index: 500 }`; `.console-content` 80vw×80vh + `.is-maximized` 100vw×100vh + iconos (espejo de `.terminal-content`); **fondo `#000000`, texto ámbar `#ffb000`** en header/cuerpo/prompt/input/líneas (`.console-line`, `.console-echo` atenuado con `opacity`, `.console-error` en bold, `.console-banner` centrado); `@media ≤600px` 92vw×85vh.
+
 ## Decisiones
 
 - **Feature nueva `028` (no amendar 026)** — 026 está cerrada y commiteada; este es un artefacto nuevo (modal, CSS y smoke propios) que depende de ella. Decisión del usuario.
@@ -65,6 +75,15 @@ La modal de bloqueo es **global** (markup estático en `index.html`, como `login
 - **Solo dispara tras el fallo final** — el gatillo es el último paso de `SECUENCIA_REANUDACION`; si el lector nunca escribe "Continuar", no hay bloqueo.
 - **`z-index: 400`** — los modales existentes usan 200/300; 400 queda arriba de todo sin tocar los existentes.
 
+### Ampliación: consola secreta (decisiones del usuario)
+
+- **Ampliar 028 en vez de crear 029** — es una interacción con el propio freeze de esta feature.
+- **Escape es toggle**: abre la consola si está cerrada y la cierra si está abierta (el freeze nunca se desbloquea).
+- **El clic en el fondo cierra la consola** — patrón estándar del sitio (además de `×` y Escape).
+- **Entrada arbitraria → eco + `ERROR: comando no reconocido.`** — mismo estilo de respuesta que la 026, nunca ejecuta nada; la entrada vacía no hace nada.
+- **Banner al abrir** — 3 líneas ("Consola de mantenimiento — nodo 136", contexto, hint) y foco automático en el input.
+- **Ámbar `#ffb000` sobre negro `#000000`** — único color nuevo de la paleta, pedido explícitamente por el usuario; queda registrado aquí como excepción consciente.
+
 ## Riesgos
 
 - **Timer huérfano** — cubierto: `cancelarCongelacionILA()` en `cerrarTerminal()`; el timeout vive en `bloqueo.js`, separado de los timers de la terminal (limpiar la terminal no lo toca, y `programarCongelacionILA` limpia el anterior antes de programar).
@@ -73,3 +92,5 @@ La modal de bloqueo es **global** (markup estático en `index.html`, como `login
 - **Escape cierra modales de detrás** — cubierto con el listener capture; verificado en el smoke (Escape no cierra el freeze ni la terminal debajo).
 - **Colisión de ids** — todos los ids van prefijados `freeze*` (convención 018).
 - **El smoke alarga** — secuencia inicial ≈ 6 s + reanudación ≈ 4 s + espera de 7 s + caso de cancelación ≈ 8 s ≈ 25-30 s totales; se espera con `poll`, no con tiempos fijos.
+- **Escape de la consola se filtra hacia detrás** — cubierto: el listener capture de `bloqueo.js` sigue haciendo `stopImmediatePropagation` antes de alternar; los checks del smoke verifican que freeze y terminal sigan `.active`.
+- **La consola tapa el freeze y rompe checks previos del smoke** — los checks del freeze se hacen con la consola cerrada (se reordena el smoke: los nuevos checks de consola van después de los del freeze, y se cierra antes de continuar).

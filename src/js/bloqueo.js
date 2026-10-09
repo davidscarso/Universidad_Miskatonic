@@ -2,6 +2,7 @@
     var timer = null;
     var interval = null;
     var activo = false;
+    var consolaAbierta = false;
     var GLYPHS = '░▓█▄▀▒■◄►▲▼╬╣╠╦╩═║╔╗╚╝⊕⊗≡≠≈∞¶§†‡';
 
     function cadena(longitud) {
@@ -55,6 +56,52 @@
         interval = setInterval(pintar, 200);
     }
 
+    function pintarLineaConsola(texto, clase) {
+        var output = document.getElementById('consoleOutput');
+        if (!output) return;
+        var linea = document.createElement('div');
+        linea.className = 'console-line' + (clase ? ' ' + clase : '');
+        linea.textContent = texto || '\u00a0';
+        output.appendChild(linea);
+        output.scrollTop = output.scrollHeight;
+    }
+
+    function abrirConsola() {
+        var modal = document.getElementById('consoleModal');
+        var output = document.getElementById('consoleOutput');
+        var input = document.getElementById('consoleInput');
+        var content = modal ? modal.querySelector('.console-content') : null;
+        var maximizeBtn = document.getElementById('consoleMaximizeBtn');
+        if (!modal || consolaAbierta) return;
+        consolaAbierta = true;
+        if (output) output.textContent = '';
+        pintarLineaConsola('■ CONSOLA DE MANTENIMIENTO — NODO 136 ■', 'console-banner');
+        pintarLineaConsola('Sesión de emergencia de la terminal 136.', 'console-hint');
+        pintarLineaConsola('Escriba cualquier comando.', 'console-hint');
+        if (input) input.value = '';
+        if (content) content.classList.remove('is-maximized');
+        if (maximizeBtn) maximizeBtn.setAttribute('title', 'Maximizar');
+        modal.classList.add('active');
+        if (input) input.focus();
+    }
+
+    function cerrarConsola() {
+        var modal = document.getElementById('consoleModal');
+        if (!consolaAbierta) return;
+        consolaAbierta = false;
+        if (modal) modal.classList.remove('active');
+    }
+
+    function procesarEntradaConsola() {
+        var input = document.getElementById('consoleInput');
+        if (!input) return;
+        var valor = input.value;
+        if (!valor.trim()) return;
+        pintarLineaConsola('ila@kaliber:~$ ' + valor, 'console-echo');
+        pintarLineaConsola('ERROR: comando no reconocido.', 'console-error');
+        input.value = '';
+    }
+
     function cancelar() {
         if (timer) {
             clearTimeout(timer);
@@ -73,10 +120,40 @@
 
     window.cancelarCongelacionILA = cancelar;
 
+    (function bindConsola() {
+        var modal = document.getElementById('consoleModal');
+        if (!modal) return;
+        var closeBtn = document.getElementById('consoleCloseBtn');
+        var maximizeBtn = document.getElementById('consoleMaximizeBtn');
+        var input = document.getElementById('consoleInput');
+        if (closeBtn) closeBtn.addEventListener('click', cerrarConsola);
+        if (maximizeBtn) {
+            maximizeBtn.addEventListener('click', function() {
+                var content = modal.querySelector('.console-content');
+                if (!content) return;
+                var maximizado = content.classList.toggle('is-maximized');
+                maximizeBtn.setAttribute('title', maximizado ? 'Restaurar' : 'Maximizar');
+            });
+        }
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) cerrarConsola();
+        });
+        if (input) {
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    procesarEntradaConsola();
+                }
+            });
+        }
+    })();
+
     document.addEventListener('keydown', function(e) {
         if (!activo || e.key !== 'Escape') return;
         e.preventDefault();
         e.stopPropagation();
         e.stopImmediatePropagation();
+        if (consolaAbierta) cerrarConsola();
+        else abrirConsola();
     }, true);
 })();

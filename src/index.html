@@ -76,6 +76,27 @@
         </div>
     </div>
 
+    <div class="modal console-modal" id="consoleModal">
+        <div class="modal-content console-content">
+            <div class="modal-header">
+                <h3 id="consoleTitle">Consola de mantenimiento — nodo 136</h3>
+                <div class="modal-controls">
+                    <button type="button" class="modal-control-btn" id="consoleMaximizeBtn" title="Maximizar">
+                        <span class="icon-maximize">&#9633;</span><span class="icon-restore">&#10697;</span>
+                    </button>
+                    <button type="button" class="modal-control-btn close-btn" id="consoleCloseBtn" title="Cerrar">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body console-body">
+                <div class="console-output" id="consoleOutput"></div>
+                <div class="console-input-line" id="consoleInputLine">
+                    <span class="console-prompt">ila@kaliber:~$</span>
+                    <input type="text" id="consoleInput" autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal" id="uploadModal">
         <div class="modal-content">
             <span class="close-modal" id="closeUploadModal">&times;</span>
